@@ -4,10 +4,10 @@ import { useEffect } from "react";
 export function useActionResizer(
     baseHeight: number,
     maxHeight: number,
-    tabContainer: React.RefObject<HTMLElement | null>,
+    container: React.RefObject<HTMLElement | null>,
 ) {
     useEffect(() => {
-        if (!tabContainer.current) {
+        if (!container.current) {
             return;
         }
 
@@ -29,10 +29,10 @@ export function useActionResizer(
             await OBR.action.setHeight(height);
         });
 
-        observer.observe(tabContainer.current);
+        observer.observe(container.current);
         return () => {
             observer.disconnect();
             void OBR.action.setHeight(baseHeight);
         };
-    }, [tabContainer]);
+    }, [container]);
 }
