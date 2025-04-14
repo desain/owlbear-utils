@@ -1,5 +1,7 @@
-'use strict';
+"use strict";
 import js from "@eslint/js";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -19,6 +21,10 @@ export default tseslint.config(
                 tsconfigRootDir: import.meta.dirname,
             },
         },
+        plugins: {
+            "react-hooks": reactHooks,
+            "react-refresh": reactRefresh,
+        },
         rules: {
             "@typescript-eslint/switch-exhaustiveness-check": "error",
             "@typescript-eslint/no-misused-promises": [
@@ -28,7 +34,5 @@ export default tseslint.config(
                 },
             ],
         },
-    }
+    },
 );
-
-
