@@ -3,11 +3,8 @@
         "target": "ES2020",
         "module": "ESNext",
         "useDefineForClassFields": true,
-        "lib": [
-            "ES2020",
-            "DOM",
-            "DOM.Iterable"
-        ],
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "allowSyntheticDefaultImports": true,
 
         /* Building */
         "rootDir": "./src",
@@ -29,5 +26,5 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true
-    },
+    }
 }
