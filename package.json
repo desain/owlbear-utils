@@ -1,0 +1,30 @@
+{
+    "name": "owlbear-utils",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Owlbear Rodeo plugins utils",
+    "scripts": {
+        "clean": "rimraf dist ./tsconfig.tsbuildinfo",
+        "build": "pnpm run clean && tsc --build",
+        "lint": "eslint ."
+    },
+    "keywords": [],
+    "author": "desain",
+    "license": "GPL-3.0",
+    "packageManager": "pnpm@10.7.1",
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "devDependencies": {
+        "@eslint/js": "^9.24.0",
+        "eslint": "^9.24.0",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.29.1"
+    },
+    "dependencies": {
+        "globals": "^16.0.0"
+    }
+}
