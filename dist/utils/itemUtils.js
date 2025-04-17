@@ -1,3 +1,10 @@
+import { isImage } from "@owlbear-rodeo/sdk";
+export function getName(item) {
+    if (isImage(item) && item.text.plainText) {
+        return item.text.plainText;
+    }
+    return item.name;
+}
 export function getId(item) {
     return item.id;
 }
