@@ -1,0 +1,30 @@
+# .github/workflows/build-and-commit-alt.yml
+
+name: Build and Commit Dist
+
+on: push
+
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/control-the-concurrency-of-workflows-and-jobs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  commit-dist:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '23'
+      - run: pnpm run build
+      - uses: stefanzweifel/git-auto-commit-action@v5
