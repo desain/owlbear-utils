@@ -1,4 +1,4 @@
-import { BlendMode, Layer } from "@owlbear-rodeo/sdk";
+import { BlendMode, CurveStyle, Layer, ShapeStyle, Vector2, Vector3 } from "@owlbear-rodeo/sdk";
 
 export const BLEND_MODES: BlendMode[] = [
     "SRC_OVER", // Default/normal
@@ -32,9 +32,9 @@ export const BLEND_MODES: BlendMode[] = [
     "DST_ATOP",
 ];
 
-export function isBlendMode(mode: string): mode is BlendMode {
+export function isBlendMode(mode: unknown): mode is BlendMode {
     const blendModes2: string[] = BLEND_MODES; // hack to widen type
-    return blendModes2.includes(mode);
+    return typeof mode === "string" && blendModes2.includes(mode);
 }
 
 export const LAYERS: Layer[] = [
@@ -55,8 +55,57 @@ export const LAYERS: Layer[] = [
     "POPOVER",
 ];
 
-export function isLayer(layer: string): layer is Layer {
+export function isLayer(layer: unknown): layer is Layer {
     const layers2: string[] = LAYERS; // hack to widen type
-    return layers2.includes(layer);
+    return typeof layer === "string" && layers2.includes(layer);
 }
 
+export function isVector2(v: unknown): v is Vector2 {
+    return (
+        isObject(v) &&
+        "x" in v &&
+        typeof v.x === "number" &&
+        "y" in v &&
+        typeof v.y === "number"
+    );
+}
+
+export function isVector3(v: unknown): v is Vector3 {
+    return (
+        isObject(v) &&
+        "x" in v &&
+        typeof v.x === "number" &&
+        "y" in v &&
+        typeof v.y === "number" &&
+        "z" in v &&
+        typeof v.z === "number"
+    );
+}
+
+export function isShapeStyle(style: unknown): style is ShapeStyle {
+    return (
+        isObject(style) &&
+        "fillColor" in style &&
+        typeof style.fillColor === "string" &&
+        "fillOpacity" in style &&
+        typeof style.fillOpacity === "number" &&
+        "strokeColor" in style &&
+        typeof style.strokeColor === "string" &&
+        "strokeOpacity" in style &&
+        typeof style.strokeOpacity === "number" &&
+        "strokeWidth" in style &&
+        typeof style.strokeWidth === "number" &&
+        "strokeDash" in style &&
+        Array.isArray(style.strokeDash) &&
+        style.strokeDash.every((dash) => typeof dash === "number")
+    );
+}
+
+export function isCurveStyle(style: unknown): style is CurveStyle {
+    return (
+        isShapeStyle(style) &&
+        "tension" in style &&
+        typeof style.tension === "number" &&
+        (!("closed" in style) || typeof style.closed === "boolean")
+    );
+}
