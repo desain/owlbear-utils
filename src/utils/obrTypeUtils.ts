@@ -1,4 +1,5 @@
-import { BlendMode, CurveStyle, Layer, ShapeStyle, Vector2, Vector3 } from "@owlbear-rodeo/sdk";
+import { BlendMode, CurveStyle, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 
 export const BLEND_MODES: BlendMode[] = [
     "SRC_OVER", // Default/normal
