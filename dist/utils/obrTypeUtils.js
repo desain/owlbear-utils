@@ -1,3 +1,4 @@
+import { isObject } from "./jsUtils";
 export const BLEND_MODES = [
     "SRC_OVER", // Default/normal
     "PLUS", // Commonly used for light effects
@@ -31,7 +32,7 @@ export const BLEND_MODES = [
 ];
 export function isBlendMode(mode) {
     const blendModes2 = BLEND_MODES; // hack to widen type
-    return blendModes2.includes(mode);
+    return typeof mode === "string" && blendModes2.includes(mode);
 }
 export const LAYERS = [
     "MAP",
@@ -52,6 +53,44 @@ export const LAYERS = [
 ];
 export function isLayer(layer) {
     const layers2 = LAYERS; // hack to widen type
-    return layers2.includes(layer);
+    return typeof layer === "string" && layers2.includes(layer);
+}
+export function isVector2(v) {
+    return (isObject(v) &&
+        "x" in v &&
+        typeof v.x === "number" &&
+        "y" in v &&
+        typeof v.y === "number");
+}
+export function isVector3(v) {
+    return (isObject(v) &&
+        "x" in v &&
+        typeof v.x === "number" &&
+        "y" in v &&
+        typeof v.y === "number" &&
+        "z" in v &&
+        typeof v.z === "number");
+}
+export function isShapeStyle(style) {
+    return (isObject(style) &&
+        "fillColor" in style &&
+        typeof style.fillColor === "string" &&
+        "fillOpacity" in style &&
+        typeof style.fillOpacity === "number" &&
+        "strokeColor" in style &&
+        typeof style.strokeColor === "string" &&
+        "strokeOpacity" in style &&
+        typeof style.strokeOpacity === "number" &&
+        "strokeWidth" in style &&
+        typeof style.strokeWidth === "number" &&
+        "strokeDash" in style &&
+        Array.isArray(style.strokeDash) &&
+        style.strokeDash.every((dash) => typeof dash === "number"));
+}
+export function isCurveStyle(style) {
+    return (isShapeStyle(style) &&
+        "tension" in style &&
+        typeof style.tension === "number" &&
+        (!("closed" in style) || typeof style.closed === "boolean"));
 }
 //# sourceMappingURL=obrTypeUtils.js.map
