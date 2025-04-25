@@ -70,3 +70,39 @@ export function getOrInsert<K, V>(m: Map<K, V>, key: K, insert: () => V): V {
         return value;
     }
 }
+
+/**
+ * Iterate through array with indices
+ * @param ts Array
+ * @yields [item, index]
+ * @returns Last index.
+ */
+function* withIndices<T>(ts: T[]): Iterator<[T, number], number, unknown> {
+    let i;
+    for (i = 0; i < ts.length; i++) {
+        yield [ts[i], i];
+    }
+    return i;
+}
+
+/**
+ * Utility method to filter iterator results.
+ * @param it Iterator.
+ * @param predicate Test for each value.
+ * @yields Values that pass the predicate
+ * @returns Underlying iterator return value.
+ */
+function* filterIterator<T, TReturn, TNext>(
+    it: Iterator<T, TReturn, TNext>,
+    predicate: (val: T) => boolean,
+): Generator<T, TReturn, TNext> {
+    let v;
+    while (true) {
+        v = it.next();
+        if (v.done) {
+            return v.value;
+        } else if (predicate(v.value)) {
+            yield v.value;
+        }
+    }
+}
