@@ -77,7 +77,7 @@ export function getOrInsert<K, V>(m: Map<K, V>, key: K, insert: () => V): V {
  * @yields [item, index]
  * @returns Last index.
  */
-function* withIndices<T>(ts: T[]): Iterator<[T, number], number, unknown> {
+export function* withIndices<T>(ts: T[]): Iterator<[T, number], number, unknown> {
     let i;
     for (i = 0; i < ts.length; i++) {
         yield [ts[i], i];
@@ -92,7 +92,7 @@ function* withIndices<T>(ts: T[]): Iterator<[T, number], number, unknown> {
  * @yields Values that pass the predicate
  * @returns Underlying iterator return value.
  */
-function* filterIterator<T, TReturn, TNext>(
+export function* filterIterator<T, TReturn, TNext>(
     it: Iterator<T, TReturn, TNext>,
     predicate: (val: T) => boolean,
 ): Generator<T, TReturn, TNext> {
