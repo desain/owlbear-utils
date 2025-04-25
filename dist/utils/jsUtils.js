@@ -55,4 +55,36 @@ export function getOrInsert(m, key, insert) {
         return value;
     }
 }
+/**
+ * Iterate through array with indices
+ * @param ts Array
+ * @yields [item, index]
+ * @returns Last index.
+ */
+export function* withIndices(ts) {
+    let i;
+    for (i = 0; i < ts.length; i++) {
+        yield [ts[i], i];
+    }
+    return i;
+}
+/**
+ * Utility method to filter iterator results.
+ * @param it Iterator.
+ * @param predicate Test for each value.
+ * @yields Values that pass the predicate
+ * @returns Underlying iterator return value.
+ */
+export function* filterIterator(it, predicate) {
+    let v;
+    while (true) {
+        v = it.next();
+        if (v.done) {
+            return v.value;
+        }
+        else if (predicate(v.value)) {
+            yield v.value;
+        }
+    }
+}
 //# sourceMappingURL=jsUtils.js.map

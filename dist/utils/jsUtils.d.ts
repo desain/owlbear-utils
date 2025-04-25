@@ -3,4 +3,19 @@ export declare function isDeepEqual<T extends object>(object1: T | null | undefi
 export declare function groupBy<T, K extends string>(ts: T[], key: (t: T) => K): Record<K, T[]>;
 export declare function deferCallAll(...functions: VoidFunction[]): VoidFunction;
 export declare function getOrInsert<K, V>(m: Map<K, V>, key: K, insert: () => V): V;
+/**
+ * Iterate through array with indices
+ * @param ts Array
+ * @yields [item, index]
+ * @returns Last index.
+ */
+export declare function withIndices<T>(ts: T[]): Iterator<[T, number], number, unknown>;
+/**
+ * Utility method to filter iterator results.
+ * @param it Iterator.
+ * @param predicate Test for each value.
+ * @yields Values that pass the predicate
+ * @returns Underlying iterator return value.
+ */
+export declare function filterIterator<T, TReturn, TNext>(it: Iterator<T, TReturn, TNext>, predicate: (val: T) => boolean): Generator<T, TReturn, TNext>;
 //# sourceMappingURL=jsUtils.d.ts.map
