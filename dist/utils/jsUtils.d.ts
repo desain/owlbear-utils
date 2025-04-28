@@ -18,4 +18,9 @@ export declare function withIndices<T>(ts: T[]): Iterator<[T, number], number, u
  * @returns Underlying iterator return value.
  */
 export declare function filterIterator<T, TReturn, TNext>(it: Iterator<T, TReturn, TNext>, predicate: (val: T) => boolean): Generator<T, TReturn, TNext>;
+type AnyFunction = (this: void, ...args: any[]) => unknown;
+export type ExtractNonFunctions<T> = {
+    [K in keyof T as T[K] extends AnyFunction ? never : K]: T[K];
+};
+export {};
 //# sourceMappingURL=jsUtils.d.ts.map
