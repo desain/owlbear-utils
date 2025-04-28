@@ -106,3 +106,9 @@ export function* filterIterator<T, TReturn, TNext>(
         }
     }
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyFunction = (this: void, ...args: any[]) => unknown;
+export type ExtractNonFunctions<T> = {
+    [K in keyof T as T[K] extends AnyFunction ? never : K]: T[K];
+};
