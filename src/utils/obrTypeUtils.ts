@@ -1,4 +1,4 @@
-import { BlendMode, CurveStyle, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import OBR, { BlendMode, CurveStyle, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
 import { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils";
 
@@ -111,3 +111,5 @@ export function isCurveStyle(style: unknown): style is CurveStyle {
         (!("closed" in style) || typeof style.closed === "boolean")
     );
 }
+
+export type Role = Awaited<ReturnType<typeof OBR.player.getRole>>;
