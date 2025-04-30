@@ -93,4 +93,7 @@ export function isCurveStyle(style) {
         typeof style.tension === "number" &&
         (!("closed" in style) || typeof style.closed === "boolean"));
 }
+export function isHexGrid(gridType) {
+    return gridType === "HEX_HORIZONTAL" || gridType === "HEX_VERTICAL";
+}
 //# sourceMappingURL=obrTypeUtils.js.map
