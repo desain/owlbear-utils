@@ -1,4 +1,4 @@
-import OBR, { BlendMode, CurveStyle, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import OBR, { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
 import { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils";
 
@@ -113,3 +113,8 @@ export function isCurveStyle(style: unknown): style is CurveStyle {
 }
 
 export type Role = Awaited<ReturnType<typeof OBR.player.getRole>>;
+
+export type HexGridType = "HEX_HORIZONTAL" | "HEX_VERTICAL";
+export function isHexGrid(gridType: GridType): gridType is HexGridType {
+    return gridType === "HEX_HORIZONTAL" || gridType === "HEX_VERTICAL";
+}
