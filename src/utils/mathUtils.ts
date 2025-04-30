@@ -25,3 +25,6 @@ export function matrixMultiply(m: Matrix, v: Vector2): Vector2 {
 export function degToRad(degrees: number): number {
     return (degrees * Math.PI) / 180;
 }
+
+// isometric angle = pi/6 radians, dimetric angle is 26.5 degrees
+export const ANGLE_DIMETRIC_RADIANS = degToRad(26.5);
