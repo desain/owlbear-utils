@@ -21,4 +21,6 @@ export function matrixMultiply(m, v) {
 export function degToRad(degrees) {
     return (degrees * Math.PI) / 180;
 }
+// isometric angle = pi/6 radians, dimetric angle is 26.5 degrees
+export const ANGLE_DIMETRIC_RADIANS = degToRad(26.5);
 //# sourceMappingURL=mathUtils.js.map

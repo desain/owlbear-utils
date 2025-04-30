@@ -14,4 +14,5 @@ export declare const SQRT_3: number;
  */
 export declare function matrixMultiply(m: Matrix, v: Vector2): Vector2;
 export declare function degToRad(degrees: number): number;
+export declare const ANGLE_DIMETRIC_RADIANS: number;
 //# sourceMappingURL=mathUtils.d.ts.map
