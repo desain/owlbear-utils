@@ -22,5 +22,8 @@ type AnyFunction = (this: void, ...args: any[]) => unknown;
 export type ExtractNonFunctions<T> = {
     [K in keyof T as T[K] extends AnyFunction ? never : K]: T[K];
 };
+export type Writeable<T> = {
+    -readonly [P in keyof T]: T[P];
+};
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map
