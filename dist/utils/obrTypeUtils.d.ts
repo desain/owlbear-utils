@@ -11,4 +11,5 @@ export declare function isCurveStyle(style: unknown): style is CurveStyle;
 export type Role = Awaited<ReturnType<typeof OBR.player.getRole>>;
 export type HexGridType = "HEX_HORIZONTAL" | "HEX_VERTICAL";
 export declare function isHexGrid(gridType: GridType): gridType is HexGridType;
+export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
 //# sourceMappingURL=obrTypeUtils.d.ts.map
