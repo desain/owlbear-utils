@@ -118,3 +118,5 @@ export type HexGridType = "HEX_HORIZONTAL" | "HEX_VERTICAL";
 export function isHexGrid(gridType: GridType): gridType is HexGridType {
     return gridType === "HEX_HORIZONTAL" || gridType === "HEX_VERTICAL";
 }
+
+export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
