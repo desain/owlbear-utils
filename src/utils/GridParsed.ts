@@ -1,5 +1,4 @@
-import type { Grid, GridScale } from "@owlbear-rodeo/sdk";
-import OBR from "@owlbear-rodeo/sdk";
+import OBR, { Grid, GridScale } from "@owlbear-rodeo/sdk";
 
 // params of interest from base grid object
 export type GridParams = Pick<Grid, "dpi" | "type" | "measurement">;

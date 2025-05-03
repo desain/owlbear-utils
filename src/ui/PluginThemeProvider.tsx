@@ -1,11 +1,12 @@
 // stolen from https://github.com/owlbear-rodeo/weather/blob/main/src/menu/util/PluginThemeProvider.tsx
 
-import type { Theme as MuiTheme } from "@mui/material/styles";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import type { Theme as ObrTheme } from "@owlbear-rodeo/sdk";
-import OBR from "@owlbear-rodeo/sdk";
-import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import {
+    Theme as MuiTheme,
+    ThemeProvider,
+    createTheme,
+} from "@mui/material/styles";
+import OBR, { Theme as ObrTheme } from "@owlbear-rodeo/sdk";
+import { ReactNode, useEffect, useState } from "react";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";

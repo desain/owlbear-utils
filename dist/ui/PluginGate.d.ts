@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { ReactNode } from "react";
 /**
  * Only render the children when we're within a plugin
  * and that plugin is ready.

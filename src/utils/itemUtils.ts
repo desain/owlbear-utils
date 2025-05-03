@@ -1,5 +1,4 @@
-import type { Image, Item } from "@owlbear-rodeo/sdk";
-import { isImage } from "@owlbear-rodeo/sdk";
+import { Image, isImage, Item } from "@owlbear-rodeo/sdk";
 
 export function getName(item: Image | Item): string {
     if (isImage(item) && item.text.plainText) {
@@ -26,5 +25,7 @@ export function assertItem<T extends Item>(
 }
 
 export interface HasParameterizedMetadata<Key extends string, M> {
-    metadata: Record<Key, M>;
+    metadata: {
+        [Property in Key]: M;
+    };
 }

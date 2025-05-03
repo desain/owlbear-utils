@@ -1,6 +1,5 @@
-import type OBR from "@owlbear-rodeo/sdk";
-import type { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
-import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
+import OBR, { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 export declare const BLEND_MODES: BlendMode[];
 export declare function isBlendMode(mode: unknown): mode is BlendMode;
 export declare const LAYERS: Layer[];

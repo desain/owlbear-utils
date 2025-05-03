@@ -1,4 +1,4 @@
-import type { Matrix, Vector2 } from "@owlbear-rodeo/sdk";
+import { Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 
 export const PI_6 = Math.PI / 6; // 30 deg
 export const SQRT_3 = Math.sqrt(3);
