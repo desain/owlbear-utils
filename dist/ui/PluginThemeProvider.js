@@ -1,5 +1,4 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-// stolen from https://github.com/owlbear-rodeo/weather/blob/main/src/menu/util/PluginThemeProvider.tsx
 import { ThemeProvider, createTheme, } from "@mui/material/styles";
 import OBR from "@owlbear-rodeo/sdk";
 import { useEffect, useState } from "react";

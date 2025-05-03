@@ -1,4 +1,4 @@
-import { Matrix, Vector2 } from "@owlbear-rodeo/sdk";
+import type { Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 export declare const PI_6: number;
 export declare const SQRT_3: number;
 /**
