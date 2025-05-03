@@ -49,8 +49,8 @@ importers:
         specifier: ^9.26.0
         version: 9.26.0
       eslint-config:
-        specifier: file:../eslint-config
-        version: file:../eslint-config(eslint@9.26.0)(typescript@5.8.3)
+        specifier: github:desain/eslint-config
+        version: https://codeload.github.com/desain/eslint-config/tar.gz/a8c9db8e924265d6251a83c9d3ca55ae04839998(eslint@9.26.0)(typescript@5.8.3)
       eslint-plugin-prefer-arrow-functions:
         specifier: ^3.6.2
         version: 3.6.2(eslint@9.26.0)(typescript@5.8.3)
@@ -632,8 +632,9 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-config@file:../eslint-config:
-    resolution: {directory: ../eslint-config, type: directory}
+  eslint-config@https://codeload.github.com/desain/eslint-config/tar.gz/a8c9db8e924265d6251a83c9d3ca55ae04839998:
+    resolution: {tarball: https://codeload.github.com/desain/eslint-config/tar.gz/a8c9db8e924265d6251a83c9d3ca55ae04839998}
+    version: 1.0.0
     peerDependencies:
       eslint: '>= 9'
 
@@ -1983,7 +1984,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-config@file:../eslint-config(eslint@9.26.0)(typescript@5.8.3):
+  eslint-config@https://codeload.github.com/desain/eslint-config/tar.gz/a8c9db8e924265d6251a83c9d3ca55ae04839998(eslint@9.26.0)(typescript@5.8.3):
     dependencies:
       eslint: 9.26.0
       eslint-plugin-prefer-arrow-functions: 3.6.2(eslint@9.26.0)(typescript@5.8.3)
