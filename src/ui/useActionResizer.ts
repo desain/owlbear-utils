@@ -34,5 +34,5 @@ export function useActionResizer(
             observer.disconnect();
             void OBR.action.setHeight(baseHeight);
         };
-    }, [container]);
+    }, [container, baseHeight, maxHeight]);
 }

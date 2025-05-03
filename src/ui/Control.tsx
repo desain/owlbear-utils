@@ -1,7 +1,8 @@
 import { styled } from "@mui/material";
-import FormControl, { FormControlProps } from "@mui/material/FormControl";
+import type { FormControlProps } from "@mui/material/FormControl";
+import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 const SmallLabel = styled(FormLabel)({
     fontSize: "0.75rem",

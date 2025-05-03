@@ -5,6 +5,7 @@ export {
     wrapRealInteraction,
 } from "./AbstractInteraction";
 export type { AbstractInteraction } from "./AbstractInteraction";
+export * as esLintConfig from "./eslint.config";
 export { Control } from "./ui/Control";
 export { PluginGate } from "./ui/PluginGate";
 export { PluginThemeProvider } from "./ui/PluginThemeProvider";

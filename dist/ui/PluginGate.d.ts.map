@@ -1,1 +1,1 @@
-{"version":3,"file":"PluginGate.d.ts","sourceRoot":"","sources":["../../src/ui/PluginGate.tsx"],"names":[],"mappings":"AAGA,OAAO,EAAE,SAAS,EAAuB,MAAM,OAAO,CAAC;AAEvD;;;GAGG;AACH,wBAAgB,UAAU,CAAC,EAAE,QAAQ,EAAE,EAAE;IAAE,QAAQ,EAAE,SAAS,CAAA;CAAE,kDAc/D"}
+{"version":3,"file":"PluginGate.d.ts","sourceRoot":"","sources":["../../src/ui/PluginGate.tsx"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,OAAO,CAAC;AAGvC;;;GAGG;AACH,wBAAgB,UAAU,CAAC,EAAE,QAAQ,EAAE,EAAE;IAAE,QAAQ,EAAE,SAAS,CAAA;CAAE,kDAc/D"}

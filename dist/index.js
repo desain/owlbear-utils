@@ -1,5 +1,6 @@
 import OBR from "@owlbear-rodeo/sdk";
 export { createLocalInteraction, wrapRealInteraction, } from "./AbstractInteraction";
+export * as esLintConfig from "./eslint.config";
 export { Control } from "./ui/Control";
 export { PluginGate } from "./ui/PluginGate";
 export { PluginThemeProvider } from "./ui/PluginThemeProvider";
