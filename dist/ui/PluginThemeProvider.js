@@ -1,6 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-// stolen from https://github.com/owlbear-rodeo/weather/blob/main/src/menu/util/PluginThemeProvider.tsx
-import { ThemeProvider, createTheme, } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import OBR from "@owlbear-rodeo/sdk";
 import { useEffect, useState } from "react";
 import "@fontsource/roboto/300.css";
