@@ -21,6 +21,6 @@ export function useActionResizer(baseHeight, maxHeight, container) {
             observer.disconnect();
             void OBR.action.setHeight(baseHeight);
         };
-    }, [container]);
+    }, [container, baseHeight, maxHeight]);
 }
 //# sourceMappingURL=useActionResizer.js.map
