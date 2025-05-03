@@ -1,5 +1,5 @@
-import type { FormControlProps } from "@mui/material/FormControl";
-import type { ReactNode } from "react";
+import { FormControlProps } from "@mui/material/FormControl";
+import { ReactNode } from "react";
 export declare function Control({ label, children, ...props }: {
     label: string;
     children: ReactNode;

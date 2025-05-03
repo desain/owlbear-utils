@@ -1,3 +1,4 @@
+
 export function isObject(object: unknown): object is object {
     return object != null && typeof object === "object";
 }
@@ -22,9 +23,7 @@ export function isDeepEqual<T extends object>(
     const objKeys1: (keyof T)[] = Object.keys(object1) as (keyof T)[];
     const objKeys2 = Object.keys(object2);
 
-    if (objKeys1.length !== objKeys2.length) {
-        return false;
-    }
+    if (objKeys1.length !== objKeys2.length) return false;
 
     for (const key of objKeys1) {
         const value1 = object1[key];
@@ -78,9 +77,7 @@ export function getOrInsert<K, V>(m: Map<K, V>, key: K, insert: () => V): V {
  * @yields [item, index]
  * @returns Last index.
  */
-export function* withIndices<T>(
-    ts: T[],
-): Iterator<[value: T, index: number], number, unknown> {
+export function* withIndices<T>(ts: T[]): Iterator<[T, number], number, unknown> {
     let i;
     for (i = 0; i < ts.length; i++) {
         yield [ts[i], i];
