@@ -14,12 +14,12 @@
         "sourceMap": true,
         "emitDeclarationOnly": false,
 
-        /* Module Resolution*/
-        "moduleResolution": "node",
+        /* Module Resolution - dependencies not compatible with NodeNext */
+        "moduleResolution": "node10",
         "isolatedModules": true,
         "moduleDetection": "force",
         "jsx": "react-jsx",
-        /*"esModuleInterop": true,*/
+        "esModuleInterop": true,
 
         /* Linting */
         "strict": true,
