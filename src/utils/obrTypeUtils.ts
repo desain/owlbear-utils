@@ -1,7 +1,7 @@
 import type { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
-import { isObject } from "./jsUtils";
+import { isObject } from "./jsUtils.js";
 
 export const BLEND_MODES: BlendMode[] = [
     "SRC_OVER", // Default/normal

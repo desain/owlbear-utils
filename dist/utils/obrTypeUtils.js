@@ -1,4 +1,4 @@
-import { isObject } from "./jsUtils";
+import { isObject } from "./jsUtils.js";
 export const BLEND_MODES = [
     "SRC_OVER", // Default/normal
     "PLUS", // Commonly used for light effects
