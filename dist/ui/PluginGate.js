@@ -1,7 +1,8 @@
 import { Fragment as _Fragment, jsx as _jsx } from "react/jsx-runtime";
 // Stolen from https://github.com/owlbear-rodeo/weather/blob/main/src/menu/util/PluginGate.tsx
-import OBR from "@owlbear-rodeo/sdk";
+import OBRSDK from "@owlbear-rodeo/sdk";
 import { useEffect, useState } from "react";
+const OBR = OBRSDK.default;
 /**
  * Only render the children when we're within a plugin
  * and that plugin is ready.

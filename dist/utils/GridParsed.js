@@ -1,4 +1,5 @@
-import OBR from "@owlbear-rodeo/sdk";
+import OBRSDK from "@owlbear-rodeo/sdk";
+const OBR = OBRSDK.default;
 export async function getParsedGrid() {
     const [dpi, fullScale, measurement, type] = await Promise.all([
         OBR.scene.grid.getDpi(),

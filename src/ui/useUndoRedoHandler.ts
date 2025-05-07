@@ -1,5 +1,6 @@
-import OBR from "@owlbear-rodeo/sdk";
+import OBRSDK from "@owlbear-rodeo/sdk";
 import { useEffect } from "react";
+const OBR = OBRSDK.default;
 
 /**
  * When a common key is pressed ensure the action is performed in OBR

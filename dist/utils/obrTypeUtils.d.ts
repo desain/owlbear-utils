@@ -1,6 +1,25 @@
 import type { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
-import type OBR from "@owlbear-rodeo/sdk";
-import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
+import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3.js";
+declare const OBR: {
+    onReady: (callback: () => void) => void;
+    readonly isReady: boolean;
+    viewport: import("@owlbear-rodeo/sdk/lib/api/ViewportApi.js").default;
+    player: import("@owlbear-rodeo/sdk/lib/api/PlayerApi.js").default;
+    party: import("@owlbear-rodeo/sdk/lib/api/PartyApi.js").default;
+    notification: import("@owlbear-rodeo/sdk/lib/api/NotificationApi.js").default;
+    scene: import("@owlbear-rodeo/sdk/lib/api/scene/SceneApi.js").default;
+    contextMenu: import("@owlbear-rodeo/sdk/lib/api/ContextMenuApi.js").default;
+    tool: import("@owlbear-rodeo/sdk/lib/api/ToolApi.js").default;
+    popover: import("@owlbear-rodeo/sdk/lib/api/PopoverApi.js").default;
+    modal: import("@owlbear-rodeo/sdk/lib/api/ModalApi.js").default;
+    action: import("@owlbear-rodeo/sdk/lib/api/ActionApi.js").default;
+    interaction: import("@owlbear-rodeo/sdk/lib/api/InteractionApi.js").default;
+    room: import("@owlbear-rodeo/sdk/lib/api/RoomApi.js").default;
+    theme: import("@owlbear-rodeo/sdk/lib/api/ThemeApi.js").default;
+    assets: import("@owlbear-rodeo/sdk/lib/api/AssetsApi.js").default;
+    broadcast: import("@owlbear-rodeo/sdk/lib/api/BroadcastApi.js").default;
+    isAvailable: boolean;
+};
 export declare const BLEND_MODES: BlendMode[];
 export declare function isBlendMode(mode: unknown): mode is BlendMode;
 export declare const LAYERS: Layer[];
@@ -13,4 +32,5 @@ export type Role = Awaited<ReturnType<typeof OBR.player.getRole>>;
 export type HexGridType = "HEX_HORIZONTAL" | "HEX_VERTICAL";
 export declare function isHexGrid(gridType: GridType): gridType is HexGridType;
 export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
+export {};
 //# sourceMappingURL=obrTypeUtils.d.ts.map

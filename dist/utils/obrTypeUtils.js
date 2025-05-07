@@ -1,4 +1,6 @@
+import OBRSDK from "@owlbear-rodeo/sdk";
 import { isObject } from "./jsUtils.js";
+const OBR = OBRSDK.default;
 export const BLEND_MODES = [
     "SRC_OVER", // Default/normal
     "PLUS", // Commonly used for light effects

@@ -1,5 +1,6 @@
-import OBR from "@owlbear-rodeo/sdk";
+import OBRSDK from "@owlbear-rodeo/sdk";
 import { useEffect } from "react";
+const OBR = OBRSDK.default;
 export function useActionResizer(baseHeight, maxHeight, container) {
     useEffect(() => {
         if (!container.current) {

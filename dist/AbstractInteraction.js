@@ -1,4 +1,5 @@
-import OBR from "@owlbear-rodeo/sdk";
+import OBRSDK from "@owlbear-rodeo/sdk";
+const OBR = OBRSDK.default;
 export async function wrapRealInteraction(...items) {
     const [update, stop] = await OBR.interaction.startItemInteraction(items);
     return {
