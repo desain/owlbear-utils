@@ -1,7 +1,7 @@
 import type { Item } from "@owlbear-rodeo/sdk";
 import OBR from "@owlbear-rodeo/sdk";
 import type { Draft } from "immer";
-import type { ItemApi } from "./utils/obrTypeUtils";
+import type { ItemApi } from "./utils/obrTypeUtils.js";
 
 /**
  * Type that abstracts over a network interaction or a local item interaction
