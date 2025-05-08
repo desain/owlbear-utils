@@ -23,15 +23,18 @@ export function degToRad(degrees) {
 }
 // Axonometric utils
 // isometric angle = pi/6 radians, dimetric angle is 26.5 degrees
-export const ANGLE_DIMETRIC_RADIANS = degToRad(26.5);
-const SCALE_ISOMETRIC = {
+const ANGLE_DIMETRIC_RADIANS = degToRad(26.5);
+export const SCALE_ISOMETRIC = {
     x: Math.SQRT1_2 / Math.tan(PI_6),
     y: Math.SQRT1_2,
 };
-const SCALE_DIMETRIC = {
+export const SCALE_DIMETRIC = {
     x: Math.SQRT1_2 / Math.tan(ANGLE_DIMETRIC_RADIANS),
     y: Math.SQRT1_2,
 };
+/**
+ * @returns Scale for grid. Normal for most grids, stretched for axonometric grids.
+ */
 export function getScale(gridType) {
     if (gridType === "ISOMETRIC") {
         return SCALE_ISOMETRIC;
