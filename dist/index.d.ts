@@ -1,5 +1,7 @@
 export { createLocalInteraction, wrapRealInteraction, } from "./AbstractInteraction.js";
 export type { AbstractInteraction } from "./AbstractInteraction.js";
+export { cells, floorCells, roundCells, pixels, units, unitsToCells, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
+export type { Cells, CellsWhole, Pixels, Units } from "./utils/numberUtils.js";
 export { Control } from "./ui/Control.js";
 export { PluginGate } from "./ui/PluginGate.js";
 export { PluginThemeProvider } from "./ui/PluginThemeProvider.js";
