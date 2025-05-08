@@ -45,4 +45,4 @@ export declare function unitsToCells(units: Units, grid: GridParsed): Cells;
 export declare function pixelsToCells(pixels: Pixels, grid: Grid | GridParsed | ImageGrid): Cells;
 export declare function cellsToPixels(cells: Cells, grid: GridParsed): number;
 export {};
-//# sourceMappingURL=number-utils.d.ts.map
+//# sourceMappingURL=numberUtils.d.ts.map

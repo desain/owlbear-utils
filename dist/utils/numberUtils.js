@@ -36,4 +36,4 @@ export function pixelsToCells(pixels, grid) {
 export function cellsToPixels(cells, grid) {
     return cells * grid.dpi;
 }
-//# sourceMappingURL=number-utils.js.map
+//# sourceMappingURL=numberUtils.js.map
