@@ -2,5 +2,5 @@
 Utilities for Owlbear Rodeo plugins
 
 # TODO
-- take scale axono and dimetric from dragool/auras
 - take color input from auras
+- https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
