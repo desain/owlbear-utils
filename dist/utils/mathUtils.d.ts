@@ -1,4 +1,4 @@
-import type { Matrix, Vector2 } from "@owlbear-rodeo/sdk";
+import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 export declare const PI_6: number;
 export declare const SQRT_3: number;
 /**
@@ -15,4 +15,5 @@ export declare const SQRT_3: number;
 export declare function matrixMultiply(m: Matrix, v: Vector2): Vector2;
 export declare function degToRad(degrees: number): number;
 export declare const ANGLE_DIMETRIC_RADIANS: number;
+export declare function getScale(gridType: GridType): Vector2;
 //# sourceMappingURL=mathUtils.d.ts.map
