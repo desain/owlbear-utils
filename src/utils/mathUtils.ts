@@ -2,6 +2,7 @@ import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 
 export const PI_6 = Math.PI / 6; // 30 deg
 export const SQRT_3 = Math.sqrt(3);
+export const ORIGIN: Vector2 = { x: 0, y: 0 };
 
 /**
  * Why isn't this in MathM?
