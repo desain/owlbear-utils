@@ -30,7 +30,7 @@ export function degToRad(degrees: number): number {
 // Axonometric utils
 
 // isometric angle = pi/6 radians, dimetric angle is 26.5 degrees
-const ANGLE_DIMETRIC_RADIANS = degToRad(26.5);
+export const ANGLE_DIMETRIC_RADIANS = degToRad(26.5);
 
 export const SCALE_ISOMETRIC: Vector2 = {
     x: Math.SQRT1_2 / Math.tan(PI_6),
