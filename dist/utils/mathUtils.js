@@ -1,5 +1,6 @@
 export const PI_6 = Math.PI / 6; // 30 deg
 export const SQRT_3 = Math.sqrt(3);
+export const ORIGIN = { x: 0, y: 0 };
 /**
  * Why isn't this in MathM?
  * @param m a b c

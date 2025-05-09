@@ -1,6 +1,7 @@
 import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 export declare const PI_6: number;
 export declare const SQRT_3: number;
+export declare const ORIGIN: Vector2;
 /**
  * Why isn't this in MathM?
  * @param m a b c
