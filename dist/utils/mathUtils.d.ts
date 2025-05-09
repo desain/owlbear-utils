@@ -15,6 +15,7 @@ export declare const ORIGIN: Vector2;
  */
 export declare function matrixMultiply(m: Matrix, v: Vector2): Vector2;
 export declare function degToRad(degrees: number): number;
+export declare const ANGLE_DIMETRIC_RADIANS: number;
 export declare const SCALE_ISOMETRIC: Vector2;
 export declare const SCALE_DIMETRIC: Vector2;
 /**
