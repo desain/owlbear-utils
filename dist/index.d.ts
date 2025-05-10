@@ -2,6 +2,8 @@ export { createLocalInteraction, wrapRealInteraction, } from "./AbstractInteract
 export type { AbstractInteraction } from "./AbstractInteraction.js";
 export { cells, floorCells, roundCells, pixels, units, unitsToCells, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
 export type { Cells, CellsWhole, Pixels, Units } from "./utils/numberUtils.js";
+export type { RgbColor, HexColor } from "./utils/colorUtils.js";
+export { isHexColor, assumeHexColor, hexToRgb, rgbToHex, WHITE_HEX, PINK_RGB, WHITE_RGB, RED_RGB, YELLOW_RGB } from "./utils/colorUtils.js";
 export { Control } from "./ui/Control.js";
 export { PluginGate } from "./ui/PluginGate.js";
 export { PluginThemeProvider } from "./ui/PluginThemeProvider.js";
