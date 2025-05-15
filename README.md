@@ -6,3 +6,4 @@ Utilities for Owlbear Rodeo plugins
 - https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
 -         "noUncheckedIndexedAccess": true,
 -         "erasableSyntaxOnly": true,
+- Incorporate storeinitializedgate from codeo
