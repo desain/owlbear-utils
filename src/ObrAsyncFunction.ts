@@ -36,7 +36,7 @@ const AsyncFunction = async function () {
     // no content since we're just getting the constructor
 }.constructor;
 
-export type ObrAsyncFunction<Args extends unknown[]> = (
+export type ObrAsyncFunction<Args extends unknown[] = [], Result = void> = (
     obr: typeof OBR,
     math2: typeof Math2,
     mathM: typeof MathM,
@@ -69,14 +69,14 @@ export type ObrAsyncFunction<Args extends unknown[]> = (
     _buildImageUpload: typeof buildImageUpload,
     _buildSceneUpload: typeof buildSceneUpload,
     ...args: Args
-) => Promise<void>;
+) => Promise<Result>;
 
-export function compileObrAsyncFunction<Args extends unknown[]>(
+export function compileObrAsyncFunction<Args extends unknown[], Result>(
     code: string,
     parameters: string[],
 ) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    const obrAsyncFunction: ObrAsyncFunction<Args> = AsyncFunction(
+    const obrAsyncFunction: ObrAsyncFunction<Args, Result> = AsyncFunction(
         "OBR",
         "Math2",
         "MathM",
@@ -114,10 +114,10 @@ export function compileObrAsyncFunction<Args extends unknown[]>(
     return obrAsyncFunction;
 }
 
-export function executeObrAsyncFunction<Args extends unknown[]>(
-    obrAsyncFunction: ObrAsyncFunction<Args>,
+export function executeObrAsyncFunction<Args extends unknown[], Result>(
+    obrAsyncFunction: ObrAsyncFunction<Args, Result>,
     ...args: Args
-): Promise<void> {
+): Promise<Result> {
     return obrAsyncFunction(
         OBR,
         Math2,
