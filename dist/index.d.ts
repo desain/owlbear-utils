@@ -1,5 +1,7 @@
 export { createLocalInteraction, wrapRealInteraction, } from "./AbstractInteraction.js";
 export type { AbstractInteraction } from "./AbstractInteraction.js";
+export { compileObrAsyncFunction, executeObrAsyncFunction, } from "./ObrAsyncFunction.js";
+export type { ObrAsyncFunction } from "./ObrAsyncFunction.js";
 export { cells, floorCells, roundCells, pixels, units, unitsToCells, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
 export type { Cells, CellsWhole, Pixels, Units } from "./utils/numberUtils.js";
 export type { RgbColor, HexColor } from "./utils/colorUtils.js";
