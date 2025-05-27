@@ -11,7 +11,7 @@ export type { AbstractInteraction } from "./AbstractInteraction.js";
 export {
     compileObrAsyncFunction,
     executeObrAsyncFunction,
-};
+} from "./ObrAsyncFunction.js";
 export type { ObrAsyncFunction } from "./ObrAsyncFunction.js";
 
 // Number utils
