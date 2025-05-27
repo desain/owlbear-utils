@@ -25,5 +25,9 @@ export type ExtractNonFunctions<T> = {
 export type Writeable<T> = {
     -readonly [P in keyof T]: T[P];
 };
+/**
+ * Return the value of a promise or reject if it takes too much time.
+ */
+export declare function withTimeout<T>(underlying: Promise<T>, duration?: number, timeoutReason?: string): Promise<Awaited<T>>;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map

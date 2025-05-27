@@ -88,4 +88,13 @@ export function* filterIterator(it, predicate) {
         }
     }
 }
+/**
+ * Return the value of a promise or reject if it takes too much time.
+ */
+export function withTimeout(underlying, duration, timeoutReason) {
+    return Promise.race([
+        underlying,
+        new Promise((_resolve, reject) => setTimeout(() => reject(Error(`Timed out ${timeoutReason}`)), duration ?? 1000)),
+    ]);
+}
 //# sourceMappingURL=jsUtils.js.map
