@@ -117,3 +117,22 @@ export type ExtractNonFunctions<T> = {
 };
 
 export type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
+/**
+ * Return the value of a promise or reject if it takes too much time.
+ */
+export function withTimeout<T>(
+    underlying: Promise<T>,
+    duration?: number,
+    timeoutReason?: string,
+) {
+    return Promise.race([
+        underlying,
+        new Promise<T>((_resolve, reject) =>
+            setTimeout(
+                () => reject(Error(`Timed out ${timeoutReason}`)),
+                duration ?? 1000,
+            ),
+        ),
+    ]);
+}
