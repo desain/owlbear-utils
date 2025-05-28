@@ -1,4 +1,4 @@
-import type { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils.js";
@@ -126,7 +126,7 @@ export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
  * All the data needed to build an image, excluding text.
  */
 export type ImageBuildParams = Pick<Image, "image" | "grid">;
-function isImageBuildParams(params: unknown): params is ImageBuildParams {
+export function isImageBuildParams(params: unknown): params is ImageBuildParams {
     return (
         isObject(params) &&
         "image" in params &&
