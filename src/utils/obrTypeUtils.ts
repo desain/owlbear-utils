@@ -121,3 +121,29 @@ export function isHexGrid(gridType: GridType): gridType is HexGridType {
 }
 
 export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
+
+/**
+ * All the data needed to build an image, excluding text.
+ */
+export type ImageBuildParams = Pick<Image, "image" | "grid">;
+function isImageBuildParams(params: unknown): params is ImageBuildParams {
+    return (
+        isObject(params) &&
+        "image" in params &&
+        isObject(params.image) &&
+        "url" in params.image &&
+        typeof params.image.url === "string" &&
+        "mime" in params.image &&
+        typeof params.image.mime === "string" &&
+        "width" in params.image &&
+        typeof params.image.width === "number" &&
+        "height" in params.image &&
+        typeof params.image.height === "number" &&
+        "grid" in params &&
+        isObject(params.grid) &&
+        "dpi" in params.grid &&
+        typeof params.grid.dpi === "number" &&
+        "offset" in params.grid &&
+        isVector2(params.grid.offset)
+    );
+}
