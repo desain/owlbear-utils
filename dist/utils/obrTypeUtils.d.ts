@@ -1,4 +1,4 @@
-import type { BlendMode, CurveStyle, GridType, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 export declare const BLEND_MODES: BlendMode[];
@@ -13,4 +13,9 @@ export type Role = Awaited<ReturnType<typeof OBR.player.getRole>>;
 export type HexGridType = "HEX_HORIZONTAL" | "HEX_VERTICAL";
 export declare function isHexGrid(gridType: GridType): gridType is HexGridType;
 export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
+/**
+ * All the data needed to build an image, excluding text.
+ */
+export type ImageBuildParams = Pick<Image, "image" | "grid">;
+export declare function isImageBuildParams(params: unknown): params is ImageBuildParams;
 //# sourceMappingURL=obrTypeUtils.d.ts.map

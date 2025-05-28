@@ -96,4 +96,23 @@ export function isCurveStyle(style) {
 export function isHexGrid(gridType) {
     return gridType === "HEX_HORIZONTAL" || gridType === "HEX_VERTICAL";
 }
+export function isImageBuildParams(params) {
+    return (isObject(params) &&
+        "image" in params &&
+        isObject(params.image) &&
+        "url" in params.image &&
+        typeof params.image.url === "string" &&
+        "mime" in params.image &&
+        typeof params.image.mime === "string" &&
+        "width" in params.image &&
+        typeof params.image.width === "number" &&
+        "height" in params.image &&
+        typeof params.image.height === "number" &&
+        "grid" in params &&
+        isObject(params.grid) &&
+        "dpi" in params.grid &&
+        typeof params.grid.dpi === "number" &&
+        "offset" in params.grid &&
+        isVector2(params.grid.offset));
+}
 //# sourceMappingURL=obrTypeUtils.js.map
