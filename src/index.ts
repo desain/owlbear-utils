@@ -9,10 +9,12 @@ export type { AbstractInteraction } from "./AbstractInteraction.js";
 
 // ObrAsyncFunction
 export {
+    compileObrFunction,
+    executeObrFunction,
     compileObrAsyncFunction,
     executeObrAsyncFunction,
 } from "./ObrAsyncFunction.js";
-export type { ObrAsyncFunction } from "./ObrAsyncFunction.js";
+export type { ObrFunction, ObrAsyncFunction } from "./ObrAsyncFunction.js";
 
 // Number utils
 export { cells, floorCells, roundCells, pixels, units, unitsToCells, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
