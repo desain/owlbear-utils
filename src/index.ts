@@ -14,7 +14,7 @@ export {
     compileObrAsyncFunction,
     executeObrAsyncFunction,
 } from "./ObrAsyncFunction.js";
-export type { ObrFunction, ObrAsyncFunction } from "./ObrAsyncFunction.js";
+export type { ObrFunction, ObrAsyncFunction } from "./ObrFunction.js";
 
 // Number utils
 export { cells, floorCells, roundCells, pixels, units, unitsToCells, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
