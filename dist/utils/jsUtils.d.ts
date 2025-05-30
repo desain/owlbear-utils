@@ -29,5 +29,32 @@ export type Writeable<T> = {
  * Return the value of a promise or reject if it takes too much time.
  */
 export declare function withTimeout<T>(underlying: Promise<T>, duration?: number, timeoutReason?: string): Promise<Awaited<T>>;
+/**
+ * Distribute an Omit<> across all union values of T.
+ *
+ * Eg if you have:
+ *
+ * ```
+ * interface BaseCreature {
+ *     name: string;
+ * }
+ *
+ * interface Person extends BaseCreature {
+ *     kind: 'person';
+ *     address: string;
+ * }
+ *
+ * interface Dog extends BaseCreature {
+ *     kind: 'dog';
+ *     favoriteToy: string;
+ *  }
+ * type Creature = Person | Dog;
+ * ```
+ *
+ * Then `Omit<Creature, 'name'>` = `{kind: 'person' | 'dog'}`.
+ *
+ * But `DistributiveOmit<Creature, 'name'>` = `{kind: 'person', address: string} | {kind: 'dog', favoriteToy: string}`
+ */
+export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map
