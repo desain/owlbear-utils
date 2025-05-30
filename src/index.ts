@@ -13,7 +13,7 @@ export {
     executeObrFunction,
     compileObrAsyncFunction,
     executeObrAsyncFunction,
-} from "./ObrAsyncFunction.js";
+} from "./ObrFunction.js";
 export type { ObrFunction, ObrAsyncFunction } from "./ObrFunction.js";
 
 // Number utils
