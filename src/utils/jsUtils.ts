@@ -163,6 +163,6 @@ export function withTimeout<T>(
  * 
  * But `DistributiveOmit<Creature, 'name'>` = `{kind: 'person', address: string} | {kind: 'dog', favoriteToy: string}`
  */
-type DistributiveOmit<T, K extends keyof any> = T extends any 
+export type DistributiveOmit<T, K extends keyof any> = T extends any 
   ? Omit<T, K> 
   : never;
