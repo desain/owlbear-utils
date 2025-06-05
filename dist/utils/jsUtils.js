@@ -97,4 +97,7 @@ export function withTimeout(underlying, duration, timeoutReason) {
         new Promise((_resolve, reject) => setTimeout(() => reject(Error(`Timed out ${timeoutReason}`)), duration ?? 1000)),
     ]);
 }
+export const DO_NOTHING = () => {
+    // Do nothing
+};
 //# sourceMappingURL=jsUtils.js.map

@@ -56,5 +56,6 @@ export declare function withTimeout<T>(underlying: Promise<T>, duration?: number
  * But `DistributiveOmit<Creature, 'name'>` = `{kind: 'person', address: string} | {kind: 'dog', favoriteToy: string}`
  */
 export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
+export declare const DO_NOTHING: VoidFunction;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map
