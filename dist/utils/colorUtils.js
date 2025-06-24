@@ -24,6 +24,7 @@ export function rgbToHex({ x, y, z }) {
     return assumeHexColor("#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1));
 }
 export const WHITE_HEX = assumeHexColor("#FFFFFF");
+export const BLACK_HEX = assumeHexColor("#000000");
 export const PINK_RGB = { x: 1, y: 0, z: 1 };
 export const WHITE_RGB = { x: 1, y: 1, z: 1 };
 export const RED_RGB = { x: 1, y: 0, z: 0 };

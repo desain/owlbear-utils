@@ -1,25 +1,20 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import { ThemeProvider, createTheme, } from "@mui/material/styles";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import OBR from "@owlbear-rodeo/sdk";
 import { useEffect, useState } from "react";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
 /**
  * Create a MUI theme based off of the current OBR theme
  */
 function getTheme(obrTheme) {
     return createTheme({
-        palette: obrTheme
-            ? {
-                mode: obrTheme.mode === "LIGHT" ? "light" : "dark",
-                text: obrTheme.text,
-                primary: obrTheme.primary,
-                secondary: obrTheme.secondary,
-                background: obrTheme.background,
-            }
-            : undefined,
+        palette: {
+            mode: obrTheme.mode === "LIGHT" ? "light" : "dark",
+            text: obrTheme.text,
+            primary: obrTheme.primary,
+            secondary: obrTheme.secondary,
+            background: obrTheme.background,
+        },
         shape: {
             borderRadius: 16,
         },
@@ -49,7 +44,7 @@ function getTheme(obrTheme) {
                             width: "11px",
                             height: "12px",
                             marginLeft: "10px",
-                            background: obrTheme?.mode === "LIGHT"
+                            background: obrTheme.mode === "LIGHT"
                                 ? "linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%,#000 45%,#000 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%),linear-gradient(135deg, transparent 0%,transparent 43%,#000 45%,#000 55%,transparent 57%,transparent 100%)"
                                 : "linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 43%, rgb(255, 255, 255) 45%, rgb(255, 255, 255) 55%, rgba(0, 0, 0, 0) 57%, rgba(0, 0, 0, 0) 100%), linear-gradient(135deg, transparent 0%, transparent 43%, rgb(255, 255, 255) 45%, rgb(255, 255, 255) 55%, transparent 57%, transparent 100%)",
                         },
@@ -59,18 +54,37 @@ function getTheme(obrTheme) {
         },
     });
 }
-/**
- * Provide a MUI theme with the same palette as the parent OBR window
- */
-export function PluginThemeProvider({ children }) {
-    const [theme, setTheme] = useState(() => getTheme());
+export const ExtensionWrapper = ({ children, startSyncing, useStoreFn, }) => {
+    const [initialized, setInitialized] = useState(false);
+    const obrTheme = useStoreFn((state) => state.theme);
+    const [muiTheme, setMuiTheme] = useState(() => getTheme(obrTheme));
     useEffect(() => {
-        const updateTheme = (theme) => {
-            setTheme(getTheme(theme));
+        let unsubscribe;
+        let cancelled = false;
+        OBR.onReady(async () => {
+            if (cancelled) {
+                return;
+            }
+            const [initialized, unsubscribeSyncing] = startSyncing();
+            unsubscribe = unsubscribeSyncing;
+            await initialized;
+            if (!cancelled) {
+                setInitialized(true);
+            }
+        });
+        return () => {
+            cancelled = true;
+            unsubscribe?.();
         };
-        void OBR.theme.getTheme().then(updateTheme);
-        return OBR.theme.onChange(updateTheme);
-    }, []);
-    return _jsx(ThemeProvider, { theme: theme, children: children });
-}
-//# sourceMappingURL=PluginThemeProvider.js.map
+    }, [startSyncing]);
+    useEffect(() => {
+        setMuiTheme(getTheme(obrTheme));
+    }, [obrTheme]);
+    if (initialized) {
+        return (_jsxs(ThemeProvider, { theme: muiTheme, children: [_jsx(CssBaseline, {}), children] }));
+    }
+    else {
+        return null;
+    }
+};
+//# sourceMappingURL=ExtensionWrapper.js.map

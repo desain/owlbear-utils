@@ -12,6 +12,7 @@ export declare function assumeHexColor(color: string): HexColor;
 export declare function hexToRgb(hex: string): RgbColor | null;
 export declare function rgbToHex({ x, y, z }: RgbColor): HexColor;
 export declare const WHITE_HEX: HexColor;
+export declare const BLACK_HEX: HexColor;
 export declare const PINK_RGB: RgbColor;
 export declare const WHITE_RGB: RgbColor;
 export declare const RED_RGB: RgbColor;
