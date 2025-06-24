@@ -39,6 +39,7 @@ export function rgbToHex({ x, y, z }: RgbColor): HexColor {
 }
 
 export const WHITE_HEX: HexColor = assumeHexColor("#FFFFFF");
+export const BLACK_HEX: HexColor = assumeHexColor("#000000");
 
 export const PINK_RGB: RgbColor = { x: 1, y: 0, z: 1 } as RgbColor;
 export const WHITE_RGB: RgbColor = { x: 1, y: 1, z: 1 } as RgbColor;
