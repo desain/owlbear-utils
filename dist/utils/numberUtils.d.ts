@@ -42,7 +42,8 @@ export type Units = number & {
 export declare function units(x: number): Units;
 /************************ HELPERS ************************/
 export declare function unitsToCells(units: Units, grid: GridParsed): Cells;
+export declare function unitsToPixels(units: Units, grid: GridParsed): Pixels;
 export declare function pixelsToCells(pixels: Pixels, grid: Grid | GridParsed | ImageGrid): Cells;
-export declare function cellsToPixels(cells: Cells, grid: GridParsed): number;
+export declare function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid): number;
 export {};
 //# sourceMappingURL=numberUtils.d.ts.map
