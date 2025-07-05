@@ -58,6 +58,10 @@ export function unitsToCells(units: Units, grid: GridParsed): Cells {
     return cells(units / grid.parsedScale.multiplier);
 }
 
+export function cellsToUnits(cells: Cells, grid: GridParsed): Units {
+    return units(cells * grid.parsedScale.multiplier);
+}
+
 export function unitsToPixels(units: Units, grid: GridParsed): Pixels {
     return pixels(units * grid.dpi / grid.parsedScale.multiplier);
 }

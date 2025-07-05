@@ -17,7 +17,7 @@ export {
 export type { ObrFunction, ObrAsyncFunction } from "./ObrFunction.js";
 
 // Number utils
-export { cells, floorCells, roundCells, pixels, units, unitsToCells, unitsToPixels, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
+export { cells, floorCells, roundCells, pixels, units, unitsToCells, unitsToPixels, pixelsToCells, cellsToPixels, cellsToUnits } from "./utils/numberUtils.js";
 export type { Cells, CellsWhole, Pixels, Units } from "./utils/numberUtils.js";
 
 // Color utils
