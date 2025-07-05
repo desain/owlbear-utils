@@ -4,7 +4,7 @@ export { createLocalInteraction, wrapRealInteraction, } from "./AbstractInteract
 // ObrAsyncFunction
 export { compileObrFunction, executeObrFunction, compileObrAsyncFunction, executeObrAsyncFunction, } from "./ObrFunction.js";
 // Number utils
-export { cells, floorCells, roundCells, pixels, units, unitsToCells, unitsToPixels, pixelsToCells, cellsToPixels } from "./utils/numberUtils.js";
+export { cells, floorCells, roundCells, pixels, units, unitsToCells, unitsToPixels, pixelsToCells, cellsToPixels, cellsToUnits } from "./utils/numberUtils.js";
 export { isHexColor, assumeHexColor, hexToRgb, rgbToHex, WHITE_HEX, PINK_RGB, WHITE_RGB, RED_RGB, YELLOW_RGB } from "./utils/colorUtils.js";
 // UI
 export { Control } from "./ui/Control.js";
