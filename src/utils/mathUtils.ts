@@ -53,3 +53,15 @@ export function getScale(gridType: GridType): Vector2 {
         return { x: 1, y: 1 };
     }
 }
+
+// Interaction with comp geo libs
+export type Position = [x: number, y: number];
+export function toPosition(p: Vector2): Position {
+    return [p.x, p.y];
+}
+export function toVector2(position: Position): Vector2 {
+    return { x: p[0], y: p[1] };
+}
+export function toVector2Unchecked(position: number[]): Vector2 {
+    return { x: p[0]!, y: p[1]! };
+}
