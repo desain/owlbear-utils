@@ -8,11 +8,11 @@ export function getName(item: Image | Item): string {
     return item.name;
 }
 
-export function getId(item: Item): string {
+export function getId(item: Pick<Item, 'id'>): Item['id'] {
     return item.id;
 }
 
-export function hasId(id: string): (item: Item) => boolean {
+export function hasId(id: string): (item: Pick<Item, 'id'>) => boolean {
     return (item: Item) => getId(item) === id;
 }
 

@@ -59,9 +59,9 @@ export type Position = [x: number, y: number];
 export function toPosition(p: Vector2): Position {
     return [p.x, p.y];
 }
-export function toVector2(position: Position): Vector2 {
+export function toVector2(p: Position): Vector2 {
     return { x: p[0], y: p[1] };
 }
-export function toVector2Unchecked(position: number[]): Vector2 {
+export function toVector2Unchecked(p: number[]): Vector2 {
     return { x: p[0]!, y: p[1]! };
 }

@@ -1,5 +1,5 @@
 import type { Vector2 } from "@owlbear-rodeo/sdk";
-import OBR from "@owlbear-rodeo/sdk";
+import OBR, { buildLine, buildShape } from "@owlbear-rodeo/sdk";
 
 export function debugPoints(points?: Vector2 | Vector2[], timeMs = 5_000) {
     if (!points) {
@@ -28,7 +28,7 @@ export function debugPoints(points?: Vector2 | Vector2[], timeMs = 5_000) {
 
     void OBR.scene.local.addItems(shapes);
     setTimeout(() => {
-        void OBR.scene.local.deleteItems(shapes.map(getId));
+        void OBR.scene.local.deleteItems(shapes.map(shape => shape.id));
     }, timeMs);
 }
 
@@ -53,6 +53,6 @@ export function debugLineString(points?: Vector2[] | null, timeMs = 5_000) {
 
     void OBR.scene.local.addItems(lines);
     setTimeout(() => {
-        void OBR.scene.local.deleteItems(lines.map(getId));
+        void OBR.scene.local.deleteItems(lines.map(line => line.id));
     }, timeMs);
 }
