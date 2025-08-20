@@ -13,7 +13,7 @@ export function getId(item: Pick<Item, 'id'>): Item['id'] {
 }
 
 export function hasId(id: string): (item: Pick<Item, 'id'>) => boolean {
-    return (item: Item) => getId(item) === id;
+    return (item: Pick<Item, 'id'>) => getId(item) === id;
 }
 
 export function assertItem<T extends Item>(
