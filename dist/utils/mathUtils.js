@@ -47,4 +47,13 @@ export function getScale(gridType) {
         return { x: 1, y: 1 };
     }
 }
+export function toPosition(p) {
+    return [p.x, p.y];
+}
+export function toVector2(p) {
+    return { x: p[0], y: p[1] };
+}
+export function toVector2Unchecked(p) {
+    return { x: p[0], y: p[1] };
+}
 //# sourceMappingURL=mathUtils.js.map
