@@ -42,7 +42,7 @@ export function isDeepEqual<T extends object>(
     return true;
 }
 
-export function groupBy<T, K extends string>(
+export function groupBy<T, K extends string | number | symbol>(
     ts: T[],
     key: (t: T) => K,
 ): Record<K, T[]> {
