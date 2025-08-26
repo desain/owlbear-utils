@@ -22,8 +22,9 @@ export declare const SCALE_DIMETRIC: Vector2;
  * @returns Scale for grid. Normal for most grids, stretched for axonometric grids.
  */
 export declare function getScale(gridType: GridType): Vector2;
-export type Position = [x: number, y: number];
-export declare function toPosition(p: Vector2): Position;
-export declare function toVector2(p: Position): Vector2;
+export type Position2 = [x: number, y: number];
+export declare function toPosition(p: Vector2): Position2;
+export declare function toVector2(p: Position2): Vector2;
 export declare function toVector2Unchecked(p: number[]): Vector2;
+export declare function closePolygon<T>(list: readonly T[]): readonly T[];
 //# sourceMappingURL=mathUtils.d.ts.map

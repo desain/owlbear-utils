@@ -1,4 +1,4 @@
-import OBR, { buildLine, buildShape } from "@owlbear-rodeo/sdk";
+import OBR, { buildLine, buildShape, buildCurve } from "@owlbear-rodeo/sdk";
 export function debugPoints(points, timeMs = 5000) {
     if (!points) {
         return;
@@ -44,5 +44,22 @@ export function debugLineString(points, timeMs = 5000) {
     setTimeout(() => {
         void OBR.scene.local.deleteItems(lines.map(line => line.id));
     }, timeMs);
+}
+export function debugCurve(points, time = 5000) {
+    if (!points) {
+        return;
+    }
+    const curve = buildCurve()
+        .points(points)
+        .fillColor("#ffdbdb")
+        .strokeColor("#ff0000")
+        .strokeOpacity(1)
+        .strokeWidth(5)
+        .tension(0)
+        .closed(false)
+        .disableHit(true)
+        .build();
+    void OBR.scene.local.addItems([curve]);
+    setTimeout(() => void OBR.scene.local.deleteItems([curve.id]), time);
 }
 //# sourceMappingURL=debug.js.map

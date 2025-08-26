@@ -115,4 +115,7 @@ export function isImageBuildParams(params) {
         "offset" in params.grid &&
         isVector2(params.grid.offset));
 }
+export function vector2Equals(a, b) {
+    return a.x === b.x && a.y === b.y;
+}
 //# sourceMappingURL=obrTypeUtils.js.map

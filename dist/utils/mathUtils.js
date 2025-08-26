@@ -54,6 +54,20 @@ export function toVector2(p) {
     return { x: p[0], y: p[1] };
 }
 export function toVector2Unchecked(p) {
-    return { x: p[0], y: p[1] };
+    const x = p[0];
+    const y = p[1];
+    if (x === undefined || y === undefined) {
+        throw Error("invalid position");
+    }
+    return { x, y };
+}
+export function closePolygon(list) {
+    const first = list[0];
+    if (first) {
+        return [...list, first];
+    }
+    else {
+        return list;
+    }
 }
 //# sourceMappingURL=mathUtils.js.map

@@ -11,7 +11,7 @@ export { ExtensionWrapper } from "./ui/ExtensionWrapper.js";
 export { useActionResizer } from "./ui/useActionResizer.js";
 export { startRehydrating, useRehydrate } from "./ui/useRehydrate.js";
 export { useUndoRedoHandler } from "./ui/useUndoRedoHandler.js";
-export { debugPoints, debugLineString } from "./utils/debug.js";
+export { debugPoints, debugLineString, debugCurve } from "./utils/debug.js";
 export * from "./utils/GridParsed.js";
 export * from "./utils/itemUtils.js";
 export * from "./utils/jsUtils.js";
