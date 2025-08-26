@@ -1,5 +1,5 @@
 import type { Vector2 } from "@owlbear-rodeo/sdk";
-import OBR, { buildLine, buildShape } from "@owlbear-rodeo/sdk";
+import OBR, { buildLine, buildShape, buildCurve } from "@owlbear-rodeo/sdk";
 
 export function debugPoints(points?: Vector2 | Vector2[], timeMs = 5_000) {
     if (!points) {
