@@ -147,3 +147,7 @@ export function isImageBuildParams(params: unknown): params is ImageBuildParams 
         isVector2(params.grid.offset)
     );
 }
+
+export function vector2Equals(a: Vector2, b: Vector2) {
+    return a.x === b.x && a.y === b.y;
+}

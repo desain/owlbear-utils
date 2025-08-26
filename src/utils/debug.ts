@@ -56,3 +56,23 @@ export function debugLineString(points?: Vector2[] | null, timeMs = 5_000) {
         void OBR.scene.local.deleteItems(lines.map(line => line.id));
     }, timeMs);
 }
+
+export function debugCurve(points?: Vector2[], time = 5_000) {
+    if (!points) {
+        return;
+    }
+
+    const curve = buildCurve()
+        .points(points)
+        .fillColor("#ffdbdb")
+        .strokeColor("#ff0000")
+        .strokeOpacity(1)
+        .strokeWidth(5)
+        .tension(0)
+        .closed(false)
+        .disableHit(true)
+        .build();
+
+    void OBR.scene.local.addItems([curve]);
+    setTimeout(() => void OBR.scene.local.deleteItems([curve.id]), time);
+}

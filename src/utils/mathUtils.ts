@@ -55,13 +55,27 @@ export function getScale(gridType: GridType): Vector2 {
 }
 
 // Interaction with comp geo libs
-export type Position = [x: number, y: number];
-export function toPosition(p: Vector2): Position {
+export type Position2 = [x: number, y: number];
+export function toPosition(p: Vector2): Position2 {
     return [p.x, p.y];
 }
-export function toVector2(p: Position): Vector2 {
+export function toVector2(p: Position2): Vector2 {
     return { x: p[0], y: p[1] };
 }
 export function toVector2Unchecked(p: number[]): Vector2 {
-    return { x: p[0]!, y: p[1]! };
+    const x = p[0];
+    const y = p[1];
+    if (x === undefined || y === undefined) {
+        throw Error("invalid position");
+    }
+    return { x, y };
+}
+
+export function closePolygon<T>(list: readonly T[]): readonly T[] {
+    const first = list[0];
+    if (first) {
+        return [...list, first];
+    } else {
+        return list;
+    }
 }
