@@ -1,5 +1,5 @@
 import type { Item } from "@owlbear-rodeo/sdk";
-import { getOrInsert } from "utils/jsUtils.js";
+import { getOrInsert } from "./utils/jsUtils.js";
 
 export type ItemMap<ItemType extends Item = Item> = Map<
     ItemType["id"],
