@@ -20,6 +20,7 @@ export * from "./utils/itemUtils.js";
 export * from "./utils/jsUtils.js";
 export * from "./utils/mathUtils.js";
 export * from "./utils/obrTypeUtils.js";
+export * from "./ItemMap.js";
 export function complain(message) {
     console.error(message);
     void OBR.notification.show(message, "ERROR");

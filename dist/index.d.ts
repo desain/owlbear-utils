@@ -17,5 +17,6 @@ export * from "./utils/itemUtils.js";
 export * from "./utils/jsUtils.js";
 export * from "./utils/mathUtils.js";
 export * from "./utils/obrTypeUtils.js";
+export * from "./ItemMap.js";
 export declare function complain(message: string): void;
 //# sourceMappingURL=index.d.ts.map
