@@ -170,3 +170,23 @@ export type DistributiveOmit<T, K extends keyof any> = T extends any
 export const DO_NOTHING: VoidFunction = () => {
     // Do nothing
 };
+
+/**
+ * @returns all pairs of items in an array.
+ */
+export function* pairs<T>(a: readonly T[]): Generator<[a: T, b: T]> {
+    for (let i = 0; i < a.length - 1; i++) {
+        yield [a[i]!, a[i + 1]!];
+    }
+}
+
+/**
+ * @param k Property key
+ * @returns Comparison function
+ */
+export function comparingByProperty<
+    K extends string,
+    T extends Record<K, number>,
+>(k: K, opts?: { reverse?: boolean }): (a: T, b: T) => number {
+    return opts?.reverse ? (a, b) => b[k] - a[k] : (a, b) => a[k] - b[k];
+}
