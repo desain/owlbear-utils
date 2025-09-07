@@ -100,4 +100,19 @@ export function withTimeout(underlying, duration, timeoutReason) {
 export const DO_NOTHING = () => {
     // Do nothing
 };
+/**
+ * @returns all pairs of items in an array.
+ */
+export function* pairs(a) {
+    for (let i = 0; i < a.length - 1; i++) {
+        yield [a[i], a[i + 1]];
+    }
+}
+/**
+ * @param k Property key
+ * @returns Comparison function
+ */
+export function comparingByProperty(k, opts) {
+    return opts?.reverse ? (a, b) => b[k] - a[k] : (a, b) => a[k] - b[k];
+}
 //# sourceMappingURL=jsUtils.js.map

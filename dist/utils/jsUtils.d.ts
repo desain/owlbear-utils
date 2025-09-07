@@ -57,5 +57,16 @@ export declare function withTimeout<T>(underlying: Promise<T>, duration?: number
  */
 export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
 export declare const DO_NOTHING: VoidFunction;
+/**
+ * @returns all pairs of items in an array.
+ */
+export declare function pairs<T>(a: readonly T[]): Generator<[a: T, b: T]>;
+/**
+ * @param k Property key
+ * @returns Comparison function
+ */
+export declare function comparingByProperty<K extends string, T extends Record<K, number>>(k: K, opts?: {
+    reverse?: boolean;
+}): (a: T, b: T) => number;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map
