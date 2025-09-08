@@ -36,6 +36,9 @@ export function cellsToUnits(cells, grid) {
 export function unitsToPixels(units, grid) {
     return pixels(units * grid.dpi / grid.parsedScale.multiplier);
 }
+export function pixelsToUnits(pixels, grid) {
+    return units(pixels * grid.parsedScale.multiplier / grid.dpi);
+}
 export function pixelsToCells(pixels, grid) {
     return cells(pixels / grid.dpi);
 }
