@@ -66,6 +66,10 @@ export function unitsToPixels(units: Units, grid: GridParsed): Pixels {
     return pixels(units * grid.dpi / grid.parsedScale.multiplier);
 }
 
+export function pixelsToUnits(pixels: Pixels, grid: GridParsed) {
+    return units(pixels * grid.parsedScale.multiplier / grid.dpi);
+}
+
 export function pixelsToCells(
     pixels: Pixels,
     grid: Grid | GridParsed | ImageGrid,
