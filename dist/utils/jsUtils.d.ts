@@ -9,7 +9,7 @@ export declare function getOrInsert<K, V>(m: Map<K, V>, key: K, insert: () => V)
  * @yields [item, index]
  * @returns Last index.
  */
-export declare function withIndices<T>(ts: T[]): Iterator<[item: T, index: number], number, unknown>;
+export declare function withIndices<T>(ts: T[]): Generator<[item: T, index: number], number, unknown>;
 /**
  * Utility method to filter iterator results.
  * @param it Iterator.
