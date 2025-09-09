@@ -80,7 +80,7 @@ export function getOrInsert<K, V>(m: Map<K, V>, key: K, insert: () => V): V {
  */
 export function* withIndices<T>(
     ts: T[],
-): Iterator<[item: T, index: number], number, unknown> {
+): Generator<[item: T, index: number], number, unknown> {
     let i;
     for (i = 0; i < ts.length; i++) {
         yield [ts[i], i];
