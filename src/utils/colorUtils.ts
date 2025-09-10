@@ -18,6 +18,10 @@ export function assumeHexColor(color: string): HexColor {
     return color as HexColor;
 }
 
+export function assumeRgbColor(color: Vector3) {
+    return color as RgbColor;
+}
+
 export function hexToRgb(hex: string): RgbColor | null {
     const result = parseColor(hex);
     return result?.[1] && result[2] && result[3]
@@ -45,3 +49,4 @@ export const PINK_RGB: RgbColor = { x: 1, y: 0, z: 1 } as RgbColor;
 export const WHITE_RGB: RgbColor = { x: 1, y: 1, z: 1 } as RgbColor;
 export const RED_RGB: RgbColor = { x: 1, y: 0, z: 0 } as RgbColor;
 export const YELLOW_RGB: RgbColor = { x: 1, y: 1, z: 0 } as RgbColor;
+export const BLACK_RGB: RgbColor = { x: 0, y: 0, z: 0 } as RgbColor;
