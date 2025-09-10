@@ -8,7 +8,7 @@ export * from "./utils/numberUtils.js";
 export { isHexColor, assumeHexColor, hexToRgb, rgbToHex, WHITE_HEX, PINK_RGB, WHITE_RGB, RED_RGB, YELLOW_RGB } from "./utils/colorUtils.js";
 // UI
 export { Control } from "./ui/Control.js";
-export { ExtensionWrapper } from "./ui/ExtensionWrapper.js";
+export { ExtensionWrapper, getTheme } from "./ui/ExtensionWrapper.js";
 export { useActionResizer } from "./ui/useActionResizer.js";
 export { startRehydrating, useRehydrate } from "./ui/useRehydrate.js";
 export { useUndoRedoHandler } from "./ui/useUndoRedoHandler.js";

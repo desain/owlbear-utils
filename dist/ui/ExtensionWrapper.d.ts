@@ -1,3 +1,4 @@
+import type { Theme as MuiTheme } from "@mui/material/styles";
 import type { Theme as ObrTheme } from "@owlbear-rodeo/sdk";
 import type React from "react";
 type StartSyncing = () => [
@@ -13,6 +14,10 @@ interface ExtensionWrapperProps {
     startSyncing: StartSyncing;
     useStoreFn: UseStoreFn;
 }
+/**
+ * Create a MUI theme based off of the current OBR theme
+ */
+export declare function getTheme(obrTheme: ObrTheme): MuiTheme;
 export declare const ExtensionWrapper: React.FC<ExtensionWrapperProps>;
 export {};
 //# sourceMappingURL=ExtensionWrapper.d.ts.map

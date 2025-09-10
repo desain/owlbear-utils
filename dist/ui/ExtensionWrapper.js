@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 /**
  * Create a MUI theme based off of the current OBR theme
  */
-function getTheme(obrTheme) {
+export function getTheme(obrTheme) {
     return createTheme({
         palette: {
             mode: obrTheme.mode === "LIGHT" ? "light" : "dark",
