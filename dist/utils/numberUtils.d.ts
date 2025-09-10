@@ -40,6 +40,12 @@ export type Units = number & {
     readonly [UNITS_SYMBOL]: unique symbol;
 };
 export declare function units(x: number): Units;
+/************************ RANGES *************************/
+declare const ZERO_TO_ONE_SYMBOL: unique symbol;
+export type ZeroToOne = number & {
+    readonly [ZERO_TO_ONE_SYMBOL]: unique symbol;
+};
+export declare function zeroToOne(x: number): ZeroToOne;
 /************************ HELPERS ************************/
 export declare function unitsToCells(units: Units, grid: GridParsed): Cells;
 export declare function cellsToUnits(cells: Cells, grid: GridParsed): Units;

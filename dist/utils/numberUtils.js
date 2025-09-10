@@ -26,6 +26,11 @@ const UNITS_SYMBOL = Symbol("Units");
 export function units(x) {
     return x;
 }
+/************************ RANGES *************************/
+const ZERO_TO_ONE_SYMBOL = Symbol("Cells");
+export function zeroToOne(x) {
+    return Math.max(0, Math.min(1, x));
+}
 /************************ HELPERS ************************/
 export function unitsToCells(units, grid) {
     return cells(units / grid.parsedScale.multiplier);
