@@ -9,6 +9,9 @@ export function isHexColor(color) {
 export function assumeHexColor(color) {
     return color;
 }
+export function assumeRgbColor(color) {
+    return color;
+}
 export function hexToRgb(hex) {
     const result = parseColor(hex);
     return result?.[1] && result[2] && result[3]
@@ -29,4 +32,5 @@ export const PINK_RGB = { x: 1, y: 0, z: 1 };
 export const WHITE_RGB = { x: 1, y: 1, z: 1 };
 export const RED_RGB = { x: 1, y: 0, z: 0 };
 export const YELLOW_RGB = { x: 1, y: 1, z: 0 };
+export const BLACK_RGB = { x: 0, y: 0, z: 0 };
 //# sourceMappingURL=colorUtils.js.map

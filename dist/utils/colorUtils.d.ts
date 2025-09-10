@@ -9,6 +9,7 @@ export type RgbColor = Vector3 & {
 };
 export declare function isHexColor(color: string): color is HexColor;
 export declare function assumeHexColor(color: string): HexColor;
+export declare function assumeRgbColor(color: Vector3): RgbColor;
 export declare function hexToRgb(hex: string): RgbColor | null;
 export declare function rgbToHex({ x, y, z }: RgbColor): HexColor;
 export declare const WHITE_HEX: HexColor;
@@ -17,5 +18,6 @@ export declare const PINK_RGB: RgbColor;
 export declare const WHITE_RGB: RgbColor;
 export declare const RED_RGB: RgbColor;
 export declare const YELLOW_RGB: RgbColor;
+export declare const BLACK_RGB: RgbColor;
 export {};
 //# sourceMappingURL=colorUtils.d.ts.map
