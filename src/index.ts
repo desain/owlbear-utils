@@ -20,8 +20,7 @@ export type { ObrFunction, ObrAsyncFunction } from "./ObrFunction.js";
 export * from "./utils/numberUtils.js";
 
 // Color utils
-export type { RgbColor, HexColor } from "./utils/colorUtils.js";
-export { isHexColor, assumeHexColor, hexToRgb, rgbToHex, WHITE_HEX, PINK_RGB, WHITE_RGB, RED_RGB, YELLOW_RGB } from "./utils/colorUtils.js"
+export * from "./utils/colorUtils.js"
 
 // UI
 export { Control } from "./ui/Control.js";
