@@ -52,6 +52,13 @@ export function units(x: number): Units {
     return x as Units;
 }
 
+/************************ RANGES *************************/
+const ZERO_TO_ONE_SYMBOL = Symbol("Cells");
+export type ZeroToOne = number & { readonly [ZERO_TO_ONE_SYMBOL]: unique symbol };
+export function zeroToOne(x: number): ZeroToOne {
+    return Math.max(0, Math.min(1, x)) as ZeroToOne;
+}
+
 /************************ HELPERS ************************/
 
 export function unitsToCells(units: Units, grid: GridParsed): Cells {
