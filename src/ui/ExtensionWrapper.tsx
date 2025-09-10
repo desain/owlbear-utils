@@ -26,7 +26,7 @@ interface ExtensionWrapperProps {
 /**
  * Create a MUI theme based off of the current OBR theme
  */
-function getTheme(obrTheme: ObrTheme): MuiTheme {
+export function getTheme(obrTheme: ObrTheme): MuiTheme {
     return createTheme({
         palette: {
             mode: obrTheme.mode === "LIGHT" ? "light" : "dark",
