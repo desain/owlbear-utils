@@ -115,4 +115,12 @@ export function* pairs(a) {
 export function comparingByProperty(k, opts) {
     return opts?.reverse ? (a, b) => b[k] - a[k] : (a, b) => a[k] - b[k];
 }
+export function* range(n) {
+    if (n < 0) {
+        throw Error("negative range");
+    }
+    for (let i = 0; i < n; i++) {
+        yield i;
+    }
+}
 //# sourceMappingURL=jsUtils.js.map

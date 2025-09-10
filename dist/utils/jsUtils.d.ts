@@ -68,5 +68,6 @@ export declare function pairs<T>(a: readonly T[]): Generator<[a: T, b: T]>;
 export declare function comparingByProperty<K extends string, T extends Record<K, number>>(k: K, opts?: {
     reverse?: boolean;
 }): (a: T, b: T) => number;
+export declare function range(n: number): Generator<number>;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map
