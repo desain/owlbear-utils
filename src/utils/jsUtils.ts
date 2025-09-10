@@ -190,3 +190,12 @@ export function comparingByProperty<
 >(k: K, opts?: { reverse?: boolean }): (a: T, b: T) => number {
     return opts?.reverse ? (a, b) => b[k] - a[k] : (a, b) => a[k] - b[k];
 }
+
+export function* range(n: number): Generator<number> {
+    if (n < 0) {
+        throw Error("negative range");
+    }
+    for (let i = 0; i < n; i++) {
+        yield i;
+    }
+}
