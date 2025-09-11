@@ -199,3 +199,11 @@ export function* range(n: number): Generator<number> {
         yield i;
     }
 }
+
+export function sum(ns: Iterable<number>): number {
+    let result = 0;
+    for (const n of ns) {
+        result += n;
+    }
+    return result;
+}
