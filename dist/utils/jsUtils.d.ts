@@ -69,5 +69,6 @@ export declare function comparingByProperty<K extends string, T extends Record<K
     reverse?: boolean;
 }): (a: T, b: T) => number;
 export declare function range(n: number): Generator<number>;
+export declare function sum(ns: Iterable<number>): number;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map

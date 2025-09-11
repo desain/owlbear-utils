@@ -123,4 +123,11 @@ export function* range(n) {
         yield i;
     }
 }
+export function sum(ns) {
+    let result = 0;
+    for (const n of ns) {
+        result += n;
+    }
+    return result;
+}
 //# sourceMappingURL=jsUtils.js.map
