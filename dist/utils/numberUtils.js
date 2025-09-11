@@ -27,7 +27,7 @@ export function units(x) {
     return x;
 }
 /************************ RANGES *************************/
-const ZERO_TO_ONE_SYMBOL = Symbol("Cells");
+const ZERO_TO_ONE_SYMBOL = Symbol("ZeroToOne");
 export function zeroToOne(x) {
     return Math.max(0, Math.min(1, x));
 }
