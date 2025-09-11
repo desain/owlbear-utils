@@ -53,7 +53,7 @@ export function units(x: number): Units {
 }
 
 /************************ RANGES *************************/
-const ZERO_TO_ONE_SYMBOL = Symbol("Cells");
+const ZERO_TO_ONE_SYMBOL = Symbol("ZeroToOne");
 export type ZeroToOne = number & { readonly [ZERO_TO_ONE_SYMBOL]: unique symbol };
 export function zeroToOne(x: number): ZeroToOne {
     return Math.max(0, Math.min(1, x)) as ZeroToOne;
