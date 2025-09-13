@@ -29,10 +29,9 @@ export function useActionResizer(
             await OBR.action.setHeight(height);
         });
 
-        observer.observe(container.current);
+        observer.observe(container);
         return () => {
             observer.disconnect();
-            void OBR.action.setHeight(minHeight);
         };
     }, [container, minHeight, maxHeight]);
 
