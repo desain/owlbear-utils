@@ -18,5 +18,6 @@ export * from "./utils/obrTypeUtils.js";
 export * from "./ItemMap.js";
 export * from "./watcher/Watcher.js";
 export * from "./watcher/Patcher.js";
+export * from "./defaults.js";
 export declare function complain(message: string): void;
 //# sourceMappingURL=index.d.ts.map
