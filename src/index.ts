@@ -25,7 +25,9 @@ export * from "./utils/colorUtils.js"
 // UI
 export { Control } from "./ui/Control.js";
 export { ExtensionWrapper, getTheme } from "./ui/ExtensionWrapper.js";
-export { useActionResizer } from "./ui/useActionResizer.js";
+export * from "./ui/useActionResizer.js";
+export * from "./ui/usePopoverResizer.js";
+
 export { startRehydrating, useRehydrate } from "./ui/useRehydrate.js";
 export { useUndoRedoHandler } from "./ui/useUndoRedoHandler.js";
 
