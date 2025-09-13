@@ -41,7 +41,7 @@ export * from "./utils/obrTypeUtils.js";
 export * from "./ItemMap.js";
 export * from "./watcher/Watcher.js";
 export * from "./watcher/Patcher.js";
-export * from "./defaults.ts";
+export * from "./defaults.js";
 
 export function complain(message: string) {
     console.error(message);
