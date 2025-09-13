@@ -1,7 +1,7 @@
 import type { Theme } from "@owlbear-rodeo/sdk";
 import type { GridParsed } from "./utils/GridParsed.js";
 
-export const DEFAULT_THEME = {
+export const DEFAULT_THEME: Theme = {
   "mode": "DARK",
   "primary": {
     "main": "#bb99ff",
