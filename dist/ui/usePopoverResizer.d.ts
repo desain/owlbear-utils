@@ -1,0 +1,2 @@
+export declare function usePopoverResizer(id: string, minHeight: number, maxHeight: number, minWidth: number, maxWidth: number): (node: HTMLElement | null) => void;
+//# sourceMappingURL=usePopoverResizer.d.ts.map

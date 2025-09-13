@@ -1,2 +1,2 @@
-export declare function useActionResizer(baseHeight: number, maxHeight: number, container: React.RefObject<HTMLElement | null>): void;
+export declare function useActionResizer(minHeight: number, maxHeight: number): import("react").Dispatch<import("react").SetStateAction<HTMLElement | null>>;
 //# sourceMappingURL=useActionResizer.d.ts.map
