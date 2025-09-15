@@ -48,6 +48,6 @@ export function pixelsToCells(pixels, grid) {
     return cells(pixels / grid.dpi);
 }
 export function cellsToPixels(cells, grid) {
-    return cells * grid.dpi;
+    return pixels(cells * grid.dpi);
 }
 //# sourceMappingURL=numberUtils.js.map

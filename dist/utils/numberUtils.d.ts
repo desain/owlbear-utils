@@ -52,6 +52,6 @@ export declare function cellsToUnits(cells: Cells, grid: GridParsed): Units;
 export declare function unitsToPixels(units: Units, grid: GridParsed): Pixels;
 export declare function pixelsToUnits(pixels: Pixels, grid: GridParsed): Units;
 export declare function pixelsToCells(pixels: Pixels, grid: Grid | GridParsed | ImageGrid): Cells;
-export declare function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid): number;
+export declare function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid): Pixels;
 export {};
 //# sourceMappingURL=numberUtils.d.ts.map
