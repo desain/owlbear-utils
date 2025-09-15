@@ -73,7 +73,7 @@ export function unitsToPixels(units: Units, grid: GridParsed): Pixels {
     return pixels(units * grid.dpi / grid.parsedScale.multiplier);
 }
 
-export function pixelsToUnits(pixels: Pixels, grid: GridParsed) {
+export function pixelsToUnits(pixels: Pixels, grid: GridParsed): Units {
     return units(pixels * grid.parsedScale.multiplier / grid.dpi);
 }
 
@@ -84,6 +84,6 @@ export function pixelsToCells(
     return cells(pixels / grid.dpi);
 }
 
-export function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid) {
-    return cells * grid.dpi;
+export function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid): Pixels {
+    return pixels(cells * grid.dpi);
 }
