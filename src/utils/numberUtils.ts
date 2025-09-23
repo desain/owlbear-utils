@@ -1,4 +1,4 @@
-import type { Grid, ImageGrid } from "@owlbear-rodeo/sdk";
+import type { Grid } from "@owlbear-rodeo/sdk";
 import type { GridParsed } from "./GridParsed.js";
 
 /************************* TYPES *************************/
