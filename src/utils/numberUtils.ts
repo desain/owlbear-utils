@@ -79,11 +79,11 @@ export function pixelsToUnits(pixels: Pixels, grid: GridParsed): Units {
 
 export function pixelsToCells(
     pixels: Pixels,
-    grid: Grid | GridParsed | ImageGrid,
+    grid: Pick<Grid, "dpi">,
 ): Cells {
     return cells(pixels / grid.dpi);
 }
 
-export function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid): Pixels {
+export function cellsToPixels(cells: Cells, grid: Pick<Grid, "dpi">): Pixels {
     return pixels(cells * grid.dpi);
 }
