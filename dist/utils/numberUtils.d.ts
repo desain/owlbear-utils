@@ -1,4 +1,4 @@
-import type { Grid, ImageGrid } from "@owlbear-rodeo/sdk";
+import type { Grid } from "@owlbear-rodeo/sdk";
 import type { GridParsed } from "./GridParsed.js";
 /************************* TYPES *************************/
 declare const CELLS_SYMBOL: unique symbol;
@@ -51,7 +51,7 @@ export declare function unitsToCells(units: Units, grid: GridParsed): Cells;
 export declare function cellsToUnits(cells: Cells, grid: GridParsed): Units;
 export declare function unitsToPixels(units: Units, grid: GridParsed): Pixels;
 export declare function pixelsToUnits(pixels: Pixels, grid: GridParsed): Units;
-export declare function pixelsToCells(pixels: Pixels, grid: Grid | GridParsed | ImageGrid): Cells;
-export declare function cellsToPixels(cells: Cells, grid: Grid | GridParsed | ImageGrid): Pixels;
+export declare function pixelsToCells(pixels: Pixels, grid: Pick<Grid, "dpi">): Cells;
+export declare function cellsToPixels(cells: Cells, grid: Pick<Grid, "dpi">): Pixels;
 export {};
 //# sourceMappingURL=numberUtils.d.ts.map
