@@ -1,4 +1,6 @@
 import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
+import { Math2 } from "@owlbear-rodeo/sdk";
+
 
 export const PI_6 = Math.PI / 6; // 30 deg
 export const SQRT_3 = Math.sqrt(3);
@@ -25,6 +27,10 @@ export function matrixMultiply(m: Matrix, v: Vector2): Vector2 {
 
 export function degToRad(degrees: number): number {
     return (degrees * Math.PI) / 180;
+}
+
+export function distanceSquared(a: Vector2, b: Vector2) {
+    return Math2.magnitudeSquared(Math2.sub(a, b));
 }
 
 // Axonometric utils
