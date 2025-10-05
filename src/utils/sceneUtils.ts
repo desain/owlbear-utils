@@ -1,6 +1,6 @@
 import OBR from "@owlbear-rodeo/sdk";
 
-export function sceneReady(): Promise<void> {
+export function sceneReadyPromise(): Promise<void> {
     return new Promise<void>((resolve) => {
         OBR.onReady(async () => {
             if (await OBR.scene.isReady()) {
