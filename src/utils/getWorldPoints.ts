@@ -2,12 +2,11 @@ import type {
     Curve,
     Image,
     Line,
-    Path,
     Vector2,
     Wall,
 } from "@owlbear-rodeo/sdk";
-import OBR, { isCurve, isLine, Math2, MathM } from "@owlbear-rodeo/sdk";
-import { getHexagonPoints } from "./mathUtils.js";
+import { Math2, MathM } from "@owlbear-rodeo/sdk";
+import { getHexagonPoints, matrixMultiply } from "./mathUtils.js";
 import { type NonCircleShape } from "./obrTypeUtils.js";
 import { type GridParams } from "./GridParsed.js";
 
