@@ -1,4 +1,6 @@
+import { Math2 } from "@owlbear-rodeo/sdk";
 export const PI_6 = Math.PI / 6; // 30 deg
+export const PI_3 = Math.PI / 3; // 60 deg
 export const SQRT_3 = Math.sqrt(3);
 export const ORIGIN = { x: 0, y: 0 };
 /**
@@ -19,8 +21,17 @@ export function matrixMultiply(m, v) {
         y: d * v.x + e * v.y + f,
     };
 }
+export function matrixMultiply2([a, b, c, d], { x, y }) {
+    return {
+        x: a * x + b * y,
+        y: c * x + d * y,
+    };
+}
 export function degToRad(degrees) {
     return (degrees * Math.PI) / 180;
+}
+export function distanceSquared(a, b) {
+    return Math2.magnitudeSquared(Math2.subtract(a, b));
 }
 // Axonometric utils
 // isometric angle = pi/6 radians, dimetric angle is 26.5 degrees
@@ -69,5 +80,21 @@ export function closePolygon(list) {
     else {
         return list;
     }
+}
+/**
+ * @param radius center to corner distance
+ */
+export function getHexagonPoints(radius, isPointyTop) {
+    const angleOffset = isPointyTop ? PI_6 : 0;
+    return Array.from({ length: 6 }, (_, i) => {
+        const angle = angleOffset + (Math.PI / 3) * i;
+        return {
+            x: radius * Math.cos(angle),
+            y: radius * Math.sin(angle),
+        };
+    });
+}
+export function lerp2(a, b, t) {
+    return Math2.add(a, Math2.multiply(Math2.subtract(b, a), t));
 }
 //# sourceMappingURL=mathUtils.js.map

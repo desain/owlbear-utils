@@ -130,4 +130,19 @@ export function sum(ns) {
     }
     return result;
 }
+export function minBy(arr, fn) {
+    let min = arr[0];
+    if (min === undefined) {
+        return undefined;
+    }
+    let minValue = fn(min);
+    for (const item of arr) {
+        const value = fn(item);
+        if (value < minValue) {
+            min = item;
+            minValue = value;
+        }
+    }
+    return min;
+}
 //# sourceMappingURL=jsUtils.js.map

@@ -1,4 +1,4 @@
-import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 export declare const BLEND_MODES: BlendMode[];
@@ -19,4 +19,9 @@ export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
 export type ImageBuildParams = Pick<Image, "image" | "grid">;
 export declare function isImageBuildParams(params: unknown): params is ImageBuildParams;
 export declare function vector2Equals(a: Vector2, b: Vector2): boolean;
+type NonCircleShape = Shape & {
+    shapeType: Exclude<ShapeType, "CIRCLE">;
+};
+export declare function isNonCircleShape(shape: Shape): shape is NonCircleShape;
+export {};
 //# sourceMappingURL=obrTypeUtils.d.ts.map

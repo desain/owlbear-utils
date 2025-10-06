@@ -70,5 +70,6 @@ export declare function comparingByProperty<K extends string, T extends Record<K
 }): (a: T, b: T) => number;
 export declare function range(n: number): Generator<number>;
 export declare function sum(ns: Iterable<number>): number;
+export declare function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map

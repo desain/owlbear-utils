@@ -118,4 +118,7 @@ export function isImageBuildParams(params) {
 export function vector2Equals(a, b) {
     return a.x === b.x && a.y === b.y;
 }
+export function isNonCircleShape(shape) {
+    return shape.shapeType !== "CIRCLE";
+}
 //# sourceMappingURL=obrTypeUtils.js.map
