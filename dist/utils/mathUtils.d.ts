@@ -1,4 +1,4 @@
-import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
+import type { GridType, Matrix, Vector2, BoundingBox } from "@owlbear-rodeo/sdk";
 import type { ZeroToOne } from "./numberUtils.js";
 export declare const PI_6: number;
 export declare const PI_3: number;
@@ -42,4 +42,5 @@ export declare function closePolygon<T>(list: readonly T[]): readonly T[];
  */
 export declare function getHexagonPoints(radius: number, isPointyTop: boolean): Vector2[];
 export declare function lerp2(a: Vector2, b: Vector2, t: ZeroToOne): Vector2;
+export declare function boundingBoxContains(point: Vector2, boundingBox: Pick<BoundingBox, "min" | "max">): boolean;
 //# sourceMappingURL=mathUtils.d.ts.map

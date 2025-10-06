@@ -97,4 +97,10 @@ export function getHexagonPoints(radius, isPointyTop) {
 export function lerp2(a, b, t) {
     return Math2.add(a, Math2.multiply(Math2.subtract(b, a), t));
 }
+export function boundingBoxContains(point, boundingBox) {
+    return (point.x >= boundingBox.min.x &&
+        point.x <= boundingBox.max.x &&
+        point.y >= boundingBox.min.y &&
+        point.y <= boundingBox.max.y);
+}
 //# sourceMappingURL=mathUtils.js.map
