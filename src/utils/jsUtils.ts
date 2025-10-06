@@ -223,3 +223,35 @@ export function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
     }
     return min;
 }
+
+/**
+ * @returns true if the object does not contain the key, the key is explicitly set to undefined,
+ *          or the predicate is true for the key; false otherwise
+ */
+export function containsImplies<O extends Record<string, unknown>>(
+    o: O,
+    k: keyof O,
+    p: (v: unknown) => boolean,
+) {
+    return !(k in o) || o[k] === undefined || p(o[k]);
+}
+
+export function isNumber(n: unknown): n is number {
+    return typeof n === "number";
+}
+
+export function isString(v: unknown): v is string {
+    return typeof v === "string";
+}
+
+export function isFalse(v: unknown): v is false {
+    return v === false;
+}
+
+export function isTrue(v: unknown): v is true {
+    return v === true;
+}
+
+export function isBoolean(v: unknown): v is boolean {
+    return typeof v === "boolean";
+}
