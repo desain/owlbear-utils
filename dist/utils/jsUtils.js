@@ -145,4 +145,26 @@ export function minBy(arr, fn) {
     }
     return min;
 }
+/**
+ * @returns true if the object does not contain the key, the key is explicitly set to undefined,
+ *          or the predicate is true for the key; false otherwise
+ */
+export function containsImplies(o, k, p) {
+    return !(k in o) || o[k] === undefined || p(o[k]);
+}
+export function isNumber(n) {
+    return typeof n === "number";
+}
+export function isString(v) {
+    return typeof v === "string";
+}
+export function isFalse(v) {
+    return v === false;
+}
+export function isTrue(v) {
+    return v === true;
+}
+export function isBoolean(v) {
+    return typeof v === "boolean";
+}
 //# sourceMappingURL=jsUtils.js.map

@@ -71,5 +71,15 @@ export declare function comparingByProperty<K extends string, T extends Record<K
 export declare function range(n: number): Generator<number>;
 export declare function sum(ns: Iterable<number>): number;
 export declare function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined;
+/**
+ * @returns true if the object does not contain the key, the key is explicitly set to undefined,
+ *          or the predicate is true for the key; false otherwise
+ */
+export declare function containsImplies<O extends Record<string, unknown>>(o: O, k: keyof O, p: (v: unknown) => boolean): boolean;
+export declare function isNumber(n: unknown): n is number;
+export declare function isString(v: unknown): v is string;
+export declare function isFalse(v: unknown): v is false;
+export declare function isTrue(v: unknown): v is true;
+export declare function isBoolean(v: unknown): v is boolean;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map
