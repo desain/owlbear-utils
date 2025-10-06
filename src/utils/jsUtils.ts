@@ -208,7 +208,7 @@ export function sum(ns: Iterable<number>): number {
     return result;
 }
 
-function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
+export function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
     let min = arr[0];
     if (min === undefined) {
         return undefined;

@@ -1,5 +1,6 @@
 import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 import { Math2 } from "@owlbear-rodeo/sdk";
+import type { ZeroToOne } from "./numberUtils.js";
 
 export const PI_6 = Math.PI / 6; // 30 deg
 export const PI_3 = Math.PI / 3; // 60 deg

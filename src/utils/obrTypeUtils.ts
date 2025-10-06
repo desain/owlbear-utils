@@ -1,4 +1,4 @@
-import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils.js";

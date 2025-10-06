@@ -41,9 +41,7 @@ export function getGridCorners(
 ): Vector2[] {
     if (isHexGrid(type)) {
         // 6 corners for hex, dpi is flat-to-flat distance
-        const angleOffset = type === "HEX_HORIZONTAL" ? 0 : PI_6;
-        const radius = hexRadius({ dpi });
-        return getHexagonPoints(radius, angleOffset).map((point) =>
+        return getHexagonPoints(hexRadius({ dpi }), isPointyTop(type)).map((point) =>
             Math2.add(point, center),
         );
     } else if (type === "ISOMETRIC") {
