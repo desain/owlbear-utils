@@ -7,14 +7,11 @@ import {
     matrixMultiply,
     distanceSquared,
     getHexagonPoints,
-    lerp2,
-    PI_6,
     SQRT_3,
 } from "./mathUtils.js";
 import {
     pixels,
     pixelsToCells,
-    type ZeroToOne,
 } from "./numberUtils.js";
 import {
     isHexGrid,
