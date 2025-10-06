@@ -207,3 +207,19 @@ export function sum(ns: Iterable<number>): number {
     }
     return result;
 }
+
+function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
+    let min = arr[0];
+    if (min === undefined) {
+        return undefined;
+    }
+    let minValue = fn(min);
+    for (const item of arr) {
+        const value = fn(item);
+        if (value < minValue) {
+            min = item;
+            minValue = value;
+        }
+    }
+    return min;
+}

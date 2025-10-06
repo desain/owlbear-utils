@@ -1,4 +1,4 @@
-import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2 } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils.js";
@@ -150,4 +150,9 @@ export function isImageBuildParams(params: unknown): params is ImageBuildParams 
 
 export function vector2Equals(a: Vector2, b: Vector2) {
     return a.x === b.x && a.y === b.y;
+}
+
+type NonCircleShape = Shape & { shapeType: Exclude<ShapeType, "CIRCLE"> };
+export function isNonCircleShape(shape: Shape): shape is NonCircleShape {
+    return shape.shapeType !== "CIRCLE";
 }

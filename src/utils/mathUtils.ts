@@ -1,10 +1,17 @@
 import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
 import { Math2 } from "@owlbear-rodeo/sdk";
 
-
 export const PI_6 = Math.PI / 6; // 30 deg
+export const PI_3 = Math.PI / 3; // 60 deg
 export const SQRT_3 = Math.sqrt(3);
 export const ORIGIN: Vector2 = { x: 0, y: 0 };
+
+/**
+ * 2D matrix type (row-major):
+ * a b
+ * c d
+ */
+export type Matrix2 = [a: number, b: number, c: number, d: number];
 
 /**
  * Why isn't this in MathM?
@@ -25,12 +32,20 @@ export function matrixMultiply(m: Matrix, v: Vector2): Vector2 {
     };
 }
 
+export function matrixMultiply2([a, b, c, d]: Matrix2, {x, y}: Vector2): Vector2 {
+    return {
+        x: a * x + b * y,
+        y: c * x + d * y,
+    };
+}
+
+
 export function degToRad(degrees: number): number {
     return (degrees * Math.PI) / 180;
 }
 
 export function distanceSquared(a: Vector2, b: Vector2) {
-    return Math2.magnitudeSquared(Math2.sub(a, b));
+    return Math2.magnitudeSquared(Math2.subtract(a, b));
 }
 
 // Axonometric utils
@@ -84,4 +99,25 @@ export function closePolygon<T>(list: readonly T[]): readonly T[] {
     } else {
         return list;
     }
+}
+
+/**
+ * @param radius center to corner distance
+ */
+export function getHexagonPoints(
+    radius: number,
+    isPointyTop: boolean,
+): Vector2[] {
+    const angleOffset = isPointyTop ? PI_6 : 0;
+    return Array.from({ length: 6 }, (_, i) => {
+        const angle = angleOffset + (Math.PI / 3) * i;
+        return {
+            x: radius * Math.cos(angle),
+            y: radius * Math.sin(angle),
+        };
+    });
+}
+
+export function lerp2(a: Vector2, b: Vector2, t: ZeroToOne): Vector2 {
+    return Math2.add(a, Math2.multiply(Math2.subtract(b, a), t));
 }
