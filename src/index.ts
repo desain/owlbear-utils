@@ -16,12 +16,6 @@ export {
 } from "./ObrFunction.js";
 export type { ObrFunction, ObrAsyncFunction } from "./ObrFunction.js";
 
-// Number utils
-export * from "./utils/numberUtils.js";
-
-// Color utils
-export * from "./utils/colorUtils.js"
-
 // UI
 export { Control } from "./ui/Control.js";
 export { ExtensionWrapper, getTheme } from "./ui/ExtensionWrapper.js";
@@ -40,7 +34,10 @@ export * from "./utils/obrTypeUtils.js";
 export * from "./utils/sceneUtils.js";
 export * from "./utils/bezierUtils.js"
 export * from "./utils/gridUtils.js";
+export * from "./utils/colorUtils.js"
+export * from "./utils/numberUtils.js";
 export * from "./utils/debug.js";
+export * from "./utils/getWorldPoints.js";
 export * from "./ItemMap.js";
 export * from "./watcher/Watcher.js";
 export * from "./watcher/Patcher.js";

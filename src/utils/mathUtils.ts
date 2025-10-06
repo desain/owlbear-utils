@@ -1,4 +1,4 @@
-import type { GridType, Matrix, Vector2 } from "@owlbear-rodeo/sdk";
+import type { GridType, Matrix, Vector2, BoundingBox } from "@owlbear-rodeo/sdk";
 import { Math2 } from "@owlbear-rodeo/sdk";
 import type { ZeroToOne } from "./numberUtils.js";
 
@@ -121,4 +121,16 @@ export function getHexagonPoints(
 
 export function lerp2(a: Vector2, b: Vector2, t: ZeroToOne): Vector2 {
     return Math2.add(a, Math2.multiply(Math2.subtract(b, a), t));
+}
+
+export function boundingBoxContains(
+    point: Vector2,
+    boundingBox: Pick<BoundingBox, "min" | "max">,
+): boolean {
+    return (
+        point.x >= boundingBox.min.x &&
+        point.x <= boundingBox.max.x &&
+        point.y >= boundingBox.min.y &&
+        point.y <= boundingBox.max.y
+    );
 }
