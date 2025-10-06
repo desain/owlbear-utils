@@ -152,7 +152,7 @@ export function vector2Equals(a: Vector2, b: Vector2) {
     return a.x === b.x && a.y === b.y;
 }
 
-type NonCircleShape = Shape & { shapeType: Exclude<ShapeType, "CIRCLE"> };
+export type NonCircleShape = Shape & { shapeType: Exclude<ShapeType, "CIRCLE"> };
 export function isNonCircleShape(shape: Shape): shape is NonCircleShape {
     return shape.shapeType !== "CIRCLE";
 }
