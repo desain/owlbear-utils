@@ -171,6 +171,16 @@ export const DO_NOTHING: VoidFunction = () => {
     // Do nothing
 };
 
+export function makeIdempotent(f: VoidFunction): VoidFunction {
+    let called = false;
+    return () => {
+        if (!called) {
+            f();
+            called = true;
+        }
+    }
+}
+
 /**
  * @returns all pairs of items in an array.
  */
