@@ -240,7 +240,7 @@ export function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
  */
 export function containsImplies<O extends Record<string, unknown>>(
     o: O,
-    k: keyof O,
+    k: string,
     p: (v: unknown) => boolean,
 ) {
     return !(k in o) || o[k] === undefined || p(o[k]);
