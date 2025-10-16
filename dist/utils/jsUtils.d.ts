@@ -57,6 +57,7 @@ export declare function withTimeout<T>(underlying: Promise<T>, duration?: number
  */
 export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
 export declare const DO_NOTHING: VoidFunction;
+export declare function makeIdempotent(f: VoidFunction): VoidFunction;
 /**
  * @returns all pairs of items in an array.
  */
