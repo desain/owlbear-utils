@@ -1,4 +1,4 @@
-import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType, ImageAssetType } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils.js";
@@ -61,6 +61,13 @@ export const LAYERS: Layer[] = [
 export function isLayer(layer: unknown): layer is Layer {
     const layers2: string[] = LAYERS; // hack to widen type
     return typeof layer === "string" && layers2.includes(layer);
+}
+
+export const IMAGE_ASSET_TYPES: ImageAssetType[] = ["MAP", "PROP", "MOUNT", "CHARACTER", "ATTACHMENT", "NOTE"];
+
+export function isImageAssetType(ty: unknown): ty is ImageAssetType {
+    const tys: string[] = IMAGE_ASSET_TYPES; // hack to widen type
+    return typeof ty === "string" && tys.includes(ty);
 }
 
 export function isVector2(v: unknown): v is Vector2 {
