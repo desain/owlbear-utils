@@ -238,12 +238,16 @@ export function minBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
  * @returns true if the object does not contain the key, the key is explicitly set to undefined,
  *          or the predicate is true for the key; false otherwise
  */
-export function containsImplies<O extends Record<string, unknown>>(
+export function containsImplies<O extends object, K extends string, V>(
     o: O,
-    k: string,
-    p: (v: unknown) => boolean,
-) {
-    return !(k in o) || o[k] === undefined || p(o[k]);
+    k: K,
+    p: (v: unknown) => v is V,
+): boolean {
+    return (
+        !(k in o) ||
+        (o as Record<K, V | undefined>)[k] === undefined ||
+        p((o as Record<K, V | undefined>)[k])
+    );
 }
 
 export function isNumber(n: unknown): n is number {
