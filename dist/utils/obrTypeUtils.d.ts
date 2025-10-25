@@ -1,10 +1,12 @@
-import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType } from "@owlbear-rodeo/sdk";
+import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType, ImageAssetType } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 export declare const BLEND_MODES: BlendMode[];
 export declare function isBlendMode(mode: unknown): mode is BlendMode;
 export declare const LAYERS: Layer[];
 export declare function isLayer(layer: unknown): layer is Layer;
+export declare const IMAGE_ASSET_TYPES: ImageAssetType[];
+export declare function isImageAssetType(ty: unknown): ty is ImageAssetType;
 export declare function isVector2(v: unknown): v is Vector2;
 export declare function isVector3(v: unknown): v is Vector3;
 export declare function isShapeStyle(style: unknown): style is ShapeStyle;
