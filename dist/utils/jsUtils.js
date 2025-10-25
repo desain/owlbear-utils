@@ -159,7 +159,9 @@ export function minBy(arr, fn) {
  *          or the predicate is true for the key; false otherwise
  */
 export function containsImplies(o, k, p) {
-    return !(k in o) || o[k] === undefined || p(o[k]);
+    return (!(k in o) ||
+        o[k] === undefined ||
+        p(o[k]));
 }
 export function isNumber(n) {
     return typeof n === "number";

@@ -76,7 +76,7 @@ export declare function minBy<T>(arr: T[], fn: (item: T) => number): T | undefin
  * @returns true if the object does not contain the key, the key is explicitly set to undefined,
  *          or the predicate is true for the key; false otherwise
  */
-export declare function containsImplies<O extends Record<string, unknown>>(o: O, k: string, p: (v: unknown) => boolean): boolean;
+export declare function containsImplies<O extends object, K extends string, V>(o: O, k: K, p: (v: unknown) => v is V): boolean;
 export declare function isNumber(n: unknown): n is number;
 export declare function isString(v: unknown): v is string;
 export declare function isFalse(v: unknown): v is false;
