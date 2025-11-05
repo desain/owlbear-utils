@@ -1,6 +1,21 @@
 import type { Item } from "@owlbear-rodeo/sdk";
 import OBR from "@owlbear-rodeo/sdk";
+import { backOff, type BackoffOptions } from "exponential-backoff";
 import type { WritableDraft } from "immer";
+import { isOwlbearError } from "../utils/obrTypeUtils.js";
+
+const BACKOFF_OPTIONS: BackoffOptions = {
+    jitter: "full",
+    startingDelay: 1000,
+    retry: (e) => {
+        if (isOwlbearError(e) && e.name === "RateLimitHit") {
+            console.warn("Rate limit hit, backing off...", e);
+            return true;
+        } else {
+            return false;
+        }
+    },
+};
 
 export class Patcher {
     #newLocals: Item[] = [];
@@ -69,49 +84,72 @@ export class Patcher {
 
         // Handle local items
         if (this.#newLocals.length > 0) {
-            await OBR.scene.local.addItems(this.#newLocals);
+            await backOff(
+                () => OBR.scene.local.addItems(this.#newLocals),
+                BACKOFF_OPTIONS,
+            );
             this.#newLocals = [];
         }
 
         if (this.#toDeleteLocals.length > 0) {
-            await OBR.scene.local.deleteItems(this.#toDeleteLocals);
+            await backOff(
+                () => OBR.scene.local.deleteItems(this.#toDeleteLocals),
+                BACKOFF_OPTIONS,
+            );
             this.#toDeleteLocals = [];
         }
 
         if (this.#localUpdates.size > 0) {
-            await OBR.scene.local.updateItems(
-                () => true,
-                (items) =>
-                    items.forEach((item) => {
-                        const updaters = this.#localUpdates.get(item.id) ?? [];
-                        for (const updater of updaters) {
-                            updater(item);
-                        }
-                    }),
+            await backOff(
+                () =>
+                    OBR.scene.local.updateItems(
+                        [...this.#localUpdates.keys()],
+                        (items) =>
+                            items.forEach((item) => {
+                                const updaters =
+                                    this.#localUpdates.get(item.id) ?? [];
+                                for (const updater of updaters) {
+                                    updater(item);
+                                }
+                            }),
+                    ),
+                BACKOFF_OPTIONS,
             );
             this.#localUpdates.clear();
         }
 
         // Handle regular scene items
         if (this.#newItems.length > 0) {
-            await OBR.scene.items.addItems(this.#newItems);
+            await backOff(
+                () => OBR.scene.items.addItems(this.#newItems),
+                BACKOFF_OPTIONS,
+            );
             this.#newItems = [];
         }
 
         if (this.#toDeleteItems.length > 0) {
-            await OBR.scene.items.deleteItems(this.#toDeleteItems);
+            await backOff(
+                () => OBR.scene.items.deleteItems(this.#toDeleteItems),
+                BACKOFF_OPTIONS,
+            );
             this.#toDeleteItems = [];
         }
 
         if (this.#itemUpdates.size > 0) {
-            const itemIds = Array.from(this.#itemUpdates.keys());
-            await OBR.scene.items.updateItems(itemIds, (items) =>
-                items.forEach((item) => {
-                    const updaters = this.#itemUpdates.get(item.id) ?? [];
-                    for (const updater of updaters) {
-                        updater(item);
-                    }
-                }),
+            await backOff(
+                () =>
+                    OBR.scene.items.updateItems(
+                        [...this.#itemUpdates.keys()],
+                        (items) =>
+                            items.forEach((item) => {
+                                const updaters =
+                                    this.#itemUpdates.get(item.id) ?? [];
+                                for (const updater of updaters) {
+                                    updater(item);
+                                }
+                            }),
+                    ),
+                BACKOFF_OPTIONS,
             );
             this.#itemUpdates.clear();
         }

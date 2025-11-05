@@ -11,6 +11,21 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 };
 var _Patcher_newLocals, _Patcher_toDeleteLocals, _Patcher_localUpdates, _Patcher_newItems, _Patcher_toDeleteItems, _Patcher_itemUpdates;
 import OBR from "@owlbear-rodeo/sdk";
+import { backOff } from "exponential-backoff";
+import { isOwlbearError } from "../utils/obrTypeUtils.js";
+const BACKOFF_OPTIONS = {
+    jitter: "full",
+    startingDelay: 1000,
+    retry: (e) => {
+        if (isOwlbearError(e) && e.name === "RateLimitHit") {
+            console.warn("Rate limit hit, backing off...", e);
+            return true;
+        }
+        else {
+            return false;
+        }
+    },
+};
 export class Patcher {
     constructor() {
         _Patcher_newLocals.set(this, []);
@@ -84,39 +99,38 @@ export class Patcher {
                 // the list is cleared?
                 // Handle local items
                 if (__classPrivateFieldGet(this, _Patcher_newLocals, "f").length > 0) {
-                    await OBR.scene.local.addItems(__classPrivateFieldGet(this, _Patcher_newLocals, "f"));
+                    await backOff(() => OBR.scene.local.addItems(__classPrivateFieldGet(this, _Patcher_newLocals, "f")), BACKOFF_OPTIONS);
                     __classPrivateFieldSet(this, _Patcher_newLocals, [], "f");
                 }
                 if (__classPrivateFieldGet(this, _Patcher_toDeleteLocals, "f").length > 0) {
-                    await OBR.scene.local.deleteItems(__classPrivateFieldGet(this, _Patcher_toDeleteLocals, "f"));
+                    await backOff(() => OBR.scene.local.deleteItems(__classPrivateFieldGet(this, _Patcher_toDeleteLocals, "f")), BACKOFF_OPTIONS);
                     __classPrivateFieldSet(this, _Patcher_toDeleteLocals, [], "f");
                 }
                 if (__classPrivateFieldGet(this, _Patcher_localUpdates, "f").size > 0) {
-                    await OBR.scene.local.updateItems(() => true, (items) => items.forEach((item) => {
+                    await backOff(() => OBR.scene.local.updateItems([...__classPrivateFieldGet(this, _Patcher_localUpdates, "f").keys()], (items) => items.forEach((item) => {
                         const updaters = __classPrivateFieldGet(this, _Patcher_localUpdates, "f").get(item.id) ?? [];
                         for (const updater of updaters) {
                             updater(item);
                         }
-                    }));
+                    })), BACKOFF_OPTIONS);
                     __classPrivateFieldGet(this, _Patcher_localUpdates, "f").clear();
                 }
                 // Handle regular scene items
                 if (__classPrivateFieldGet(this, _Patcher_newItems, "f").length > 0) {
-                    await OBR.scene.items.addItems(__classPrivateFieldGet(this, _Patcher_newItems, "f"));
+                    await backOff(() => OBR.scene.items.addItems(__classPrivateFieldGet(this, _Patcher_newItems, "f")), BACKOFF_OPTIONS);
                     __classPrivateFieldSet(this, _Patcher_newItems, [], "f");
                 }
                 if (__classPrivateFieldGet(this, _Patcher_toDeleteItems, "f").length > 0) {
-                    await OBR.scene.items.deleteItems(__classPrivateFieldGet(this, _Patcher_toDeleteItems, "f"));
+                    await backOff(() => OBR.scene.items.deleteItems(__classPrivateFieldGet(this, _Patcher_toDeleteItems, "f")), BACKOFF_OPTIONS);
                     __classPrivateFieldSet(this, _Patcher_toDeleteItems, [], "f");
                 }
                 if (__classPrivateFieldGet(this, _Patcher_itemUpdates, "f").size > 0) {
-                    const itemIds = Array.from(__classPrivateFieldGet(this, _Patcher_itemUpdates, "f").keys());
-                    await OBR.scene.items.updateItems(itemIds, (items) => items.forEach((item) => {
+                    await backOff(() => OBR.scene.items.updateItems([...__classPrivateFieldGet(this, _Patcher_itemUpdates, "f").keys()], (items) => items.forEach((item) => {
                         const updaters = __classPrivateFieldGet(this, _Patcher_itemUpdates, "f").get(item.id) ?? [];
                         for (const updater of updaters) {
                             updater(item);
                         }
-                    }));
+                    })), BACKOFF_OPTIONS);
                     __classPrivateFieldGet(this, _Patcher_itemUpdates, "f").clear();
                 }
             }

@@ -1,5 +1,16 @@
-import type { BlendMode, CurveStyle, GridType, Image, Layer, ShapeStyle, Vector2, Shape, ShapeType, ImageAssetType } from "@owlbear-rodeo/sdk";
 import type OBR from "@owlbear-rodeo/sdk";
+import type {
+    BlendMode,
+    CurveStyle,
+    GridType,
+    Image,
+    ImageAssetType,
+    Layer,
+    Shape,
+    ShapeStyle,
+    ShapeType,
+    Vector2,
+} from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils.js";
 
@@ -63,7 +74,14 @@ export function isLayer(layer: unknown): layer is Layer {
     return typeof layer === "string" && layers2.includes(layer);
 }
 
-export const IMAGE_ASSET_TYPES: ImageAssetType[] = ["MAP", "PROP", "MOUNT", "CHARACTER", "ATTACHMENT", "NOTE"];
+export const IMAGE_ASSET_TYPES: ImageAssetType[] = [
+    "MAP",
+    "PROP",
+    "MOUNT",
+    "CHARACTER",
+    "ATTACHMENT",
+    "NOTE",
+];
 
 export function isImageAssetType(ty: unknown): ty is ImageAssetType {
     const tys: string[] = IMAGE_ASSET_TYPES; // hack to widen type
@@ -133,7 +151,9 @@ export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
  * All the data needed to build an image, excluding text.
  */
 export type ImageBuildParams = Pick<Image, "image" | "grid">;
-export function isImageBuildParams(params: unknown): params is ImageBuildParams {
+export function isImageBuildParams(
+    params: unknown,
+): params is ImageBuildParams {
     return (
         isObject(params) &&
         "image" in params &&
@@ -159,7 +179,23 @@ export function vector2Equals(a: Vector2, b: Vector2) {
     return a.x === b.x && a.y === b.y;
 }
 
-export type NonCircleShape = Shape & { shapeType: Exclude<ShapeType, "CIRCLE"> };
+export type NonCircleShape = Shape & {
+    shapeType: Exclude<ShapeType, "CIRCLE">;
+};
 export function isNonCircleShape(shape: Shape): shape is NonCircleShape {
     return shape.shapeType !== "CIRCLE";
+}
+
+export interface OwlbearError {
+    name: string;
+    message: string;
+}
+export function isOwlbearError(e: unknown): e is OwlbearError {
+    return (
+        isObject(e) &&
+        "name" in e &&
+        typeof e.name === "string" &&
+        "message" in e &&
+        typeof e.message === "string"
+    );
 }

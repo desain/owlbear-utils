@@ -55,7 +55,14 @@ export function isLayer(layer) {
     const layers2 = LAYERS; // hack to widen type
     return typeof layer === "string" && layers2.includes(layer);
 }
-export const IMAGE_ASSET_TYPES = ["MAP", "PROP", "MOUNT", "CHARACTER", "ATTACHMENT", "NOTE"];
+export const IMAGE_ASSET_TYPES = [
+    "MAP",
+    "PROP",
+    "MOUNT",
+    "CHARACTER",
+    "ATTACHMENT",
+    "NOTE",
+];
 export function isImageAssetType(ty) {
     const tys = IMAGE_ASSET_TYPES; // hack to widen type
     return typeof ty === "string" && tys.includes(ty);
@@ -125,5 +132,12 @@ export function vector2Equals(a, b) {
 }
 export function isNonCircleShape(shape) {
     return shape.shapeType !== "CIRCLE";
+}
+export function isOwlbearError(e) {
+    return (isObject(e) &&
+        "name" in e &&
+        typeof e.name === "string" &&
+        "message" in e &&
+        typeof e.message === "string");
 }
 //# sourceMappingURL=obrTypeUtils.js.map
