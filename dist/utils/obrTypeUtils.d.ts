@@ -26,8 +26,10 @@ export type NonCircleShape = Shape & {
 };
 export declare function isNonCircleShape(shape: Shape): shape is NonCircleShape;
 export interface OwlbearError {
-    name: string;
-    message: string;
+    error: {
+        name: string;
+        message: string;
+    };
 }
 export declare function isOwlbearError(e: unknown): e is OwlbearError;
 //# sourceMappingURL=obrTypeUtils.d.ts.map

@@ -8,10 +8,11 @@ const BACKOFF_OPTIONS: BackoffOptions = {
     jitter: "full",
     startingDelay: 1000,
     retry: (e) => {
-        if (isOwlbearError(e) && e.name === "RateLimitHit") {
-            console.warn("Rate limit hit, backing off...", e);
+        if (isOwlbearError(e) && e.error.name === "RateLimitHit") {
+            console.warn("Rate limit hit, backing off...");
             return true;
         } else {
+            // console.error("not an owlbear error", e);
             return false;
         }
     },

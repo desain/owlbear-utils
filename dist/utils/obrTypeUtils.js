@@ -135,9 +135,11 @@ export function isNonCircleShape(shape) {
 }
 export function isOwlbearError(e) {
     return (isObject(e) &&
-        "name" in e &&
-        typeof e.name === "string" &&
-        "message" in e &&
-        typeof e.message === "string");
+        "error" in e &&
+        isObject(e.error) &&
+        "name" in e.error &&
+        typeof e.error.name === "string" &&
+        "message" in e.error &&
+        typeof e.error.message === "string");
 }
 //# sourceMappingURL=obrTypeUtils.js.map
