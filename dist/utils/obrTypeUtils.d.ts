@@ -1,5 +1,5 @@
 import type OBR from "@owlbear-rodeo/sdk";
-import type { BlendMode, CurveStyle, GridType, Image, ImageAssetType, Layer, Shape, ShapeStyle, ShapeType, Vector2 } from "@owlbear-rodeo/sdk";
+import type { AttachmentBehavior, BlendMode, CurveStyle, GridType, Image, ImageAssetType, Layer, Shape, ShapeStyle, ShapeType, Vector2 } from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 export declare const BLEND_MODES: BlendMode[];
 export declare function isBlendMode(mode: unknown): mode is BlendMode;
@@ -32,4 +32,5 @@ export interface OwlbearError {
     };
 }
 export declare function isOwlbearError(e: unknown): e is OwlbearError;
+export declare function isAttachmentBehavior(b: unknown): b is AttachmentBehavior;
 //# sourceMappingURL=obrTypeUtils.d.ts.map

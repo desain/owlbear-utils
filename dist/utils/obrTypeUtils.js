@@ -142,4 +142,13 @@ export function isOwlbearError(e) {
         "message" in e.error &&
         typeof e.error.message === "string");
 }
+export function isAttachmentBehavior(b) {
+    return (b === "VISIBLE" ||
+        b === "SCALE" ||
+        b === "ROTATION" ||
+        b === "POSITION" ||
+        b === "DELETE" ||
+        b === "LOCKED" ||
+        b === "COPY");
+}
 //# sourceMappingURL=obrTypeUtils.js.map
