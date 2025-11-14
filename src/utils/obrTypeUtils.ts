@@ -1,5 +1,6 @@
 import type OBR from "@owlbear-rodeo/sdk";
 import type {
+    AttachmentBehavior,
     BlendMode,
     CurveStyle,
     GridType,
@@ -201,5 +202,17 @@ export function isOwlbearError(e: unknown): e is OwlbearError {
         typeof e.error.name === "string" &&
         "message" in e.error &&
         typeof e.error.message === "string"
+    );
+}
+
+export function isAttachmentBehavior(b: unknown): b is AttachmentBehavior {
+    return (
+        b === "VISIBLE" ||
+        b === "SCALE" ||
+        b === "ROTATION" ||
+        b === "POSITION" ||
+        b === "DELETE" ||
+        b === "LOCKED" ||
+        b === "COPY"
     );
 }
