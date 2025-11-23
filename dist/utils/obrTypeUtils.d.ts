@@ -1,5 +1,5 @@
 import type OBR from "@owlbear-rodeo/sdk";
-import type { AttachmentBehavior, BlendMode, CurveStyle, GridType, Image, ImageAssetType, Layer, Shape, ShapeStyle, ShapeType, Vector2 } from "@owlbear-rodeo/sdk";
+import { type AttachmentBehavior, type BlendMode, type CurveStyle, type GridType, type Image, type ImageAssetType, type Item, type Layer, type Shape, type ShapeStyle, type ShapeType, type Vector2 } from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 export declare const BLEND_MODES: BlendMode[];
 export declare function isBlendMode(mode: unknown): mode is BlendMode;
@@ -21,10 +21,14 @@ export type ItemApi = typeof OBR.scene.items | typeof OBR.scene.local;
 export type ImageBuildParams = Pick<Image, "image" | "grid">;
 export declare function isImageBuildParams(params: unknown): params is ImageBuildParams;
 export declare function vector2Equals(a: Vector2, b: Vector2): boolean;
+export interface Circle extends Shape {
+    shapeType: "CIRCLE";
+}
+export declare function isCircle(item: Item): item is Circle;
 export type NonCircleShape = Shape & {
     shapeType: Exclude<ShapeType, "CIRCLE">;
 };
-export declare function isNonCircleShape(shape: Shape): shape is NonCircleShape;
+export declare function isNonCircleShape(shape: Item): shape is NonCircleShape;
 export interface OwlbearError {
     error: {
         name: string;

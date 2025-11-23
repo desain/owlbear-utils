@@ -1,16 +1,18 @@
 import type OBR from "@owlbear-rodeo/sdk";
-import type {
-    AttachmentBehavior,
-    BlendMode,
-    CurveStyle,
-    GridType,
-    Image,
-    ImageAssetType,
-    Layer,
-    Shape,
-    ShapeStyle,
-    ShapeType,
-    Vector2,
+import {
+    isShape,
+    type AttachmentBehavior,
+    type BlendMode,
+    type CurveStyle,
+    type GridType,
+    type Image,
+    type ImageAssetType,
+    type Item,
+    type Layer,
+    type Shape,
+    type ShapeStyle,
+    type ShapeType,
+    type Vector2,
 } from "@owlbear-rodeo/sdk";
 import type { Vector3 } from "@owlbear-rodeo/sdk/lib/types/Vector3";
 import { isObject } from "./jsUtils.js";
@@ -180,11 +182,17 @@ export function vector2Equals(a: Vector2, b: Vector2) {
     return a.x === b.x && a.y === b.y;
 }
 
+export interface Circle extends Shape {
+    shapeType: "CIRCLE";
+}
+export function isCircle(item: Item): item is Circle {
+    return isShape(item) && item.shapeType === "CIRCLE";
+}
 export type NonCircleShape = Shape & {
     shapeType: Exclude<ShapeType, "CIRCLE">;
 };
-export function isNonCircleShape(shape: Shape): shape is NonCircleShape {
-    return shape.shapeType !== "CIRCLE";
+export function isNonCircleShape(shape: Item): shape is NonCircleShape {
+    return isShape(shape) && shape.shapeType !== "CIRCLE";
 }
 
 export interface OwlbearError {

@@ -1,14 +1,26 @@
 import type {
     Curve,
     Image,
+    Item,
     Line,
+    Path,
     Vector2,
     Wall,
 } from "@owlbear-rodeo/sdk";
-import { Math2, MathM } from "@owlbear-rodeo/sdk";
-import { getHexagonPoints, matrixMultiply } from "./mathUtils.js";
-import { type NonCircleShape } from "./obrTypeUtils.js";
+import {
+    isCurve,
+    isImage,
+    isLine,
+    isPath,
+    isWall,
+    Math2,
+    MathM,
+} from "@owlbear-rodeo/sdk";
+import simplify from "simplify-js";
+import { parseSubpath } from "./bezierUtils.js";
 import { type GridParams } from "./GridParsed.js";
+import { getHexagonPoints, matrixMultiply } from "./mathUtils.js";
+import { isNonCircleShape, type NonCircleShape } from "./obrTypeUtils.js";
 
 export function getCurveWallWorldPoints(curve: Curve | Wall): Vector2[] {
     const transform = MathM.fromItem(curve);
@@ -84,4 +96,50 @@ export function getImageWorldPoints(item: Image, grid: GridParams): Vector2[] {
             Math2.multiply(Math2.subtract(point, item.grid.offset), dpiScaling),
         ),
     );
+}
+
+function getPathWorldPoints(path: Path): Vector2[][] {
+    const lineStrings: Vector2[][] = [];
+    let idx = 0;
+    while (idx < path.commands.length) {
+        const [points, newIdx] = parseSubpath(path.commands, idx);
+        lineStrings.push(points);
+        idx = newIdx;
+    }
+
+    const transform = MathM.fromItem(path);
+    return lineStrings.map((lineString) =>
+        simplify(lineString, 5.0).map((point) =>
+            matrixMultiply(transform, point),
+        ),
+    );
+}
+
+type WorldPointsItem = Line | NonCircleShape | Curve | Path | Wall | Image;
+export function isWorldPointsItem(item: Item): item is WorldPointsItem {
+    return (
+        isLine(item) ||
+        isNonCircleShape(item) ||
+        isCurve(item) ||
+        isPath(item) ||
+        isWall(item) ||
+        isImage(item)
+    );
+}
+
+export function getWorldPoints(
+    item: WorldPointsItem,
+    grid: GridParams,
+): Vector2[] {
+    if (isLine(item)) {
+        return getLineWorldPoints(item);
+    } else if (isImage(item)) {
+        return getImageWorldPoints(item, grid);
+    } else if (isCurve(item) || isWall(item)) {
+        return getCurveWallWorldPoints(item);
+    } else if (isPath(item)) {
+        return getPathWorldPoints(item).flat();
+    } else {
+        return getShapeWorldPoints(item);
+    }
 }

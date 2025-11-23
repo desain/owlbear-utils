@@ -1,5 +1,8 @@
-import { Math2, MathM } from "@owlbear-rodeo/sdk";
+import { isCurve, isImage, isLine, isPath, isWall, Math2, MathM, } from "@owlbear-rodeo/sdk";
+import simplify from "simplify-js";
+import { parseSubpath } from "./bezierUtils.js";
 import { getHexagonPoints, matrixMultiply } from "./mathUtils.js";
+import { isNonCircleShape } from "./obrTypeUtils.js";
 export function getCurveWallWorldPoints(curve) {
     const transform = MathM.fromItem(curve);
     return curve.points.map((point) => matrixMultiply(transform, point));
@@ -59,5 +62,41 @@ export function getImageWorldPoints(item, grid) {
         { x: item.image.width, y: item.image.height }, // bottom right
         { x: item.image.width, y: 0 }, // top right
     ].map((point) => matrixMultiply(transform, Math2.multiply(Math2.subtract(point, item.grid.offset), dpiScaling)));
+}
+function getPathWorldPoints(path) {
+    const lineStrings = [];
+    let idx = 0;
+    while (idx < path.commands.length) {
+        const [points, newIdx] = parseSubpath(path.commands, idx);
+        lineStrings.push(points);
+        idx = newIdx;
+    }
+    const transform = MathM.fromItem(path);
+    return lineStrings.map((lineString) => simplify(lineString, 5.0).map((point) => matrixMultiply(transform, point)));
+}
+export function isWorldPointsItem(item) {
+    return (isLine(item) ||
+        isNonCircleShape(item) ||
+        isCurve(item) ||
+        isPath(item) ||
+        isWall(item) ||
+        isImage(item));
+}
+export function getWorldPoints(item, grid) {
+    if (isLine(item)) {
+        return getLineWorldPoints(item);
+    }
+    else if (isImage(item)) {
+        return getImageWorldPoints(item, grid);
+    }
+    else if (isCurve(item) || isWall(item)) {
+        return getCurveWallWorldPoints(item);
+    }
+    else if (isPath(item)) {
+        return getPathWorldPoints(item).flat();
+    }
+    else {
+        return getShapeWorldPoints(item);
+    }
 }
 //# sourceMappingURL=getWorldPoints.js.map

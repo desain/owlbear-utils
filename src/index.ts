@@ -32,6 +32,7 @@ export * from "./ItemMap.js";
 export * from "./utils/bezierUtils.js";
 export * from "./utils/colorUtils.js";
 export * from "./utils/debug.js";
+export * from "./utils/getBounds.js";
 export * from "./utils/getWorldPoints.js";
 export * from "./utils/GridParsed.js";
 export * from "./utils/gridUtils.js";

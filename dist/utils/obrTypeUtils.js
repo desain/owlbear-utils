@@ -1,3 +1,4 @@
+import { isShape, } from "@owlbear-rodeo/sdk";
 import { isObject } from "./jsUtils.js";
 export const BLEND_MODES = [
     "SRC_OVER", // Default/normal
@@ -130,8 +131,11 @@ export function isImageBuildParams(params) {
 export function vector2Equals(a, b) {
     return a.x === b.x && a.y === b.y;
 }
+export function isCircle(item) {
+    return isShape(item) && item.shapeType === "CIRCLE";
+}
 export function isNonCircleShape(shape) {
-    return shape.shapeType !== "CIRCLE";
+    return isShape(shape) && shape.shapeType !== "CIRCLE";
 }
 export function isOwlbearError(e) {
     return (isObject(e) &&
