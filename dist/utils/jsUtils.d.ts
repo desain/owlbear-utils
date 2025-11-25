@@ -55,7 +55,7 @@ export declare function withTimeout<T>(underlying: Promise<T>, duration?: number
  *
  * But `DistributiveOmit<Creature, 'name'>` = `{kind: 'person', address: string} | {kind: 'dog', favoriteToy: string}`
  */
-export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
+export type DistributiveOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
 export declare const DO_NOTHING: VoidFunction;
 export declare function makeIdempotent(f: VoidFunction): VoidFunction;
 /**
@@ -82,5 +82,9 @@ export declare function isString(v: unknown): v is string;
 export declare function isFalse(v: unknown): v is false;
 export declare function isTrue(v: unknown): v is true;
 export declare function isBoolean(v: unknown): v is boolean;
+export declare function diffSets<T extends string | number>(oldSet: Set<T>, newSet: Set<T>): {
+    created: T[];
+    deleted: T[];
+};
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map

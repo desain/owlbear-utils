@@ -83,7 +83,7 @@ export function* withIndices<T>(
 ): Generator<[item: T, index: number], number, unknown> {
     let i;
     for (i = 0; i < ts.length; i++) {
-        yield [ts[i], i];
+        yield [ts[i]!, i];
     }
     return i;
 }
@@ -139,33 +139,33 @@ export function withTimeout<T>(
 
 /**
  * Distribute an Omit<> across all union values of T.
- * 
+ *
  * Eg if you have:
- * 
+ *
  * ```
  * interface BaseCreature {
  *     name: string;
  * }
- * 
+ *
  * interface Person extends BaseCreature {
  *     kind: 'person';
  *     address: string;
  * }
- * 
+ *
  * interface Dog extends BaseCreature {
  *     kind: 'dog';
  *     favoriteToy: string;
  *  }
  * type Creature = Person | Dog;
  * ```
- * 
+ *
  * Then `Omit<Creature, 'name'>` = `{kind: 'person' | 'dog'}`.
- * 
+ *
  * But `DistributiveOmit<Creature, 'name'>` = `{kind: 'person', address: string} | {kind: 'dog', favoriteToy: string}`
  */
-export type DistributiveOmit<T, K extends keyof any> = T extends any 
-  ? Omit<T, K> 
-  : never;
+export type DistributiveOmit<T, K extends PropertyKey> = T extends unknown
+    ? Omit<T, K>
+    : never;
 
 export const DO_NOTHING: VoidFunction = () => {
     // Do nothing
@@ -178,7 +178,7 @@ export function makeIdempotent(f: VoidFunction): VoidFunction {
             f();
             called = true;
         }
-    }
+    };
 }
 
 /**
@@ -268,4 +268,26 @@ export function isTrue(v: unknown): v is true {
 
 export function isBoolean(v: unknown): v is boolean {
     return typeof v === "boolean";
+}
+
+export function diffSets<T extends string | number>(
+    oldSet: Set<T>,
+    newSet: Set<T>,
+): { created: T[]; deleted: T[] } {
+    const created: T[] = [];
+    const deleted: T[] = [];
+
+    for (const t of newSet) {
+        if (!oldSet.has(t)) {
+            created.push(t);
+        }
+    }
+
+    for (const t of oldSet) {
+        if (!newSet.has(t)) {
+            deleted.push(t);
+        }
+    }
+
+    return { created, deleted };
 }

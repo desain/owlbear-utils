@@ -178,4 +178,19 @@ export function isTrue(v) {
 export function isBoolean(v) {
     return typeof v === "boolean";
 }
+export function diffSets(oldSet, newSet) {
+    const created = [];
+    const deleted = [];
+    for (const t of newSet) {
+        if (!oldSet.has(t)) {
+            created.push(t);
+        }
+    }
+    for (const t of oldSet) {
+        if (!newSet.has(t)) {
+            deleted.push(t);
+        }
+    }
+    return { created, deleted };
+}
 //# sourceMappingURL=jsUtils.js.map
