@@ -22,7 +22,7 @@ import { assertItem } from "./itemUtils.js";
 import { matrixMultiply } from "./mathUtils.js";
 import { isCircle, type Circle } from "./obrTypeUtils.js";
 
-type BoundableItem = Image | Shape | Line | Curve | Path | Wall;
+export type BoundableItem = Image | Shape | Line | Curve | Path | Wall;
 export function isBoundableItem(item: Item): item is BoundableItem {
     return (
         isImage(item) ||
