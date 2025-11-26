@@ -86,5 +86,6 @@ export declare function diffSets<T extends string | number>(oldSet: Set<T>, newS
     created: T[];
     deleted: T[];
 };
+export declare function waitFor(ms: number): Promise<void>;
 export {};
 //# sourceMappingURL=jsUtils.d.ts.map

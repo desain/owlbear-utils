@@ -193,4 +193,7 @@ export function diffSets(oldSet, newSet) {
     }
     return { created, deleted };
 }
+export function waitFor(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
 //# sourceMappingURL=jsUtils.js.map
