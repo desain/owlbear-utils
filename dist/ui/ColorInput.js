@@ -47,5 +47,5 @@ const ColorInputBase = ({ value, onChange }) => {
                 setDisplayValue(assumeHexColor(e.currentTarget.value));
             } }) }));
 };
-export const ColorInput = ({ value, onChange, ...props }) => (_jsx(Control, { ...props, sx: { alignItems: "center" }, label: "Color", children: _jsx(ColorInputBase, { value: value, onChange: onChange }) }));
+export const ColorInput = ({ value, onChange, title, ...props }) => (_jsx(Control, { ...props, sx: { alignItems: "center" }, label: title ?? "Color", children: _jsx(ColorInputBase, { value: value, onChange: onChange }) }));
 //# sourceMappingURL=ColorInput.js.map

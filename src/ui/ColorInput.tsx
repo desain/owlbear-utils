@@ -72,8 +72,8 @@ const ColorInputBase: React.FC<ColorInputBaseProps> = ({ value, onChange }) => {
 
 export const ColorInput: React.FC<
     ColorInputBaseProps & Omit<FormControlProps, "onChange">
-> = ({ value, onChange, ...props }) => (
-    <Control {...props} sx={{ alignItems: "center" }} label="Color">
+> = ({ value, onChange, title, ...props }) => (
+    <Control {...props} sx={{ alignItems: "center" }} label={title ?? "Color"}>
         <ColorInputBase value={value} onChange={onChange} />
     </Control>
 );
