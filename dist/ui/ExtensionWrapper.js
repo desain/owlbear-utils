@@ -54,6 +54,11 @@ export function getTheme(obrTheme) {
         },
     });
 }
+/**
+ * Wrapper component that:
+ * - Sets the MUI theme based on the OBR theme from the Zustand store
+ * - Starts the store sync and waits for its initialization before rendering children.
+ */
 export const ExtensionWrapper = ({ children, startSyncing, useStoreFn, }) => {
     const [initialized, setInitialized] = useState(false);
     const obrTheme = useStoreFn((state) => state.theme);
