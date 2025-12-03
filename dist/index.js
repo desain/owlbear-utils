@@ -1,19 +1,16 @@
 import OBR from "@owlbear-rodeo/sdk";
 import { isOwlbearError } from "./utils/obrTypeUtils.js";
-// Abstract Interaction
-export { createLocalInteraction, wrapRealInteraction, } from "./AbstractInteraction.js";
-// ObrAsyncFunction
-export { compileObrAsyncFunction, compileObrFunction, executeObrAsyncFunction, executeObrFunction, } from "./ObrFunction.js";
-// UI
-export { Control } from "./ui/Control.js";
-export { ExtensionWrapper, getTheme } from "./ui/ExtensionWrapper.js";
-export * from "./ui/useActionResizer.js";
-export * from "./ui/usePopoverResizer.js";
-export { startRehydrating, useRehydrate } from "./ui/useRehydrate.js";
-export { useUndoRedoHandler } from "./ui/useUndoRedoHandler.js";
-// Misc utils
+export * from "./AbstractInteraction.js";
 export * from "./defaults.js";
 export * from "./ItemMap.js";
+export * from "./ObrFunction.js";
+export * from "./ui/ColorInput.js";
+export * from "./ui/Control.js";
+export * from "./ui/ExtensionWrapper.js";
+export * from "./ui/useActionResizer.js";
+export * from "./ui/usePopoverResizer.js";
+export * from "./ui/useRehydrate.js";
+export * from "./ui/useUndoRedoHandler.js";
 export * from "./utils/bezierUtils.js";
 export * from "./utils/colorUtils.js";
 export * from "./utils/debug.js";
