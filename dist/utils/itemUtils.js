@@ -16,4 +16,10 @@ export function assertItem(item, f) {
         throw new Error(`Expected item to be of type ${f.name}`);
     }
 }
+export function verifyAttached(item) {
+    if (!item.attachedTo) {
+        throw Error("item is not attached: " + item.id);
+    }
+    return item;
+}
 //# sourceMappingURL=itemUtils.js.map
