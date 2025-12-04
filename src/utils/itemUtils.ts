@@ -28,3 +28,14 @@ export function assertItem<T extends Item>(
 export interface HasParameterizedMetadata<Key extends string, M> {
     metadata: Record<Key, M>;
 }
+
+export type AttachedItem<I extends Item> = I & {
+    attachedTo: NonNullable<I["attachedTo"]>;
+};
+
+export function verifyAttached<I extends Item>(item: I): AttachedItem<I> {
+    if (!item.attachedTo) {
+        throw Error("item is not attached: " + item.id);
+    }
+    return item as AttachedItem<I>;
+}
